@@ -1,0 +1,20 @@
+name: Test CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Test Suite
+        run: |
+          cd test
+          sudo chmod +x build.sh
+          ./build.sh
