@@ -18,6 +18,7 @@ jobs:
           cd test
           sudo chmod +x build.sh
           ./build.sh
+          cd ..
 
       - name: Run test suite
         run: ./dist/full_example
