@@ -27,4 +27,4 @@ jobs:
 
       - name: Run Tests
         run: |
-          ./dist/full_example
+          ./dist/full_test
