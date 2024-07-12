@@ -13,12 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build Test Suite
+      - name: Build and Run Test Suite
         run: |
           cd test
           sudo chmod +x build.sh
           ./build.sh
           cd ..
-
-      - name: Run test suite
-        run: ./dist/full_example
+          ./dist/full_example
