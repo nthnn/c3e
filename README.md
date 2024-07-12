@@ -1,1 +1,1 @@
-# C3E: Complex Coc3ete Chip Engine
+# C3E: Complex Compute Chip Engine
