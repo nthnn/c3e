@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Os -static -I../src
+CFLAGS = -Os -static -I../include
 
 SRCS = $(wildcard ../src/c3e/*.cpp) full_test.cpp
 OBJS = $(SRCS:.cpp=.o)
