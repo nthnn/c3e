@@ -19,4 +19,12 @@ jobs:
           sudo chmod +x build.sh
           ./build.sh
           cd ..
+
+      - name: Verify Build Output
+        run: |
+          ls -la dist
+          cat test/build.log
+
+      - name: Run Tests
+        run: |
           ./dist/full_example
