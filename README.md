@@ -1,8 +1,10 @@
-# C3E: Complex Compute Chip Engine
+# C3E: Complex Compute Core Engine
 
-The C3E (Complex Compute Chip Engine) is a processing unit designed to handle complex computational tasks involving matrices, vectors, and tensors. Leveraging the powerful RP2040 microcontroller, equipped with dual ARM Cortex-M0+ processors and 16MB of flash memory, the C3E is engineered to deliver high-performance computing capabilities in a compact and efficient package. The use of SPI communication for I/O ensures fast and reliable data transfer, making the C3E an ideal solution for a wide range of applications.
+The C3E (Complex Compute Core Engine) is designed for handling complex computational tasks involving matrices, vectors, and tensors. Leveraging the powerful RP2040 microcontroller, equipped with dual ARM Cortex-M0+ processors and 16MB of flash memory, the C3E is engineered to deliver high-performance computing capabilities in a compact and efficient package. The use of SPI communication for I/O ensures fast and reliable data transfer, making the C3E an ideal solution for a wide range of applications.
 
 With dual-core processing capabilities and a 16MB of flash memory, the RP2040 serves as a foundation for the C3E, enabling it to handle wide array of computational complexities. While the integration of SPI communication for I/O further enhances the C3E's efficiency, ensuring that data flows smoothly and swiftly between the C3E and other system components.
+
+Alternatively, the C3E can also be deployed on a computer, it comes with its own dedicated Linux distro. When installed on a computer (such as a laptop or desktop), the C3E can connect to a network, allowing client computers to send and receive data to and from the C3E server via web socket.
 
 ## Use Cases
 
