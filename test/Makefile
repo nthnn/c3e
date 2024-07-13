@@ -1,8 +1,8 @@
 CC = gcc
-CFLAGS = -Os -static -I../include
+CFLAGS = -Wall -Os -static -I../include
 
-SRCS = $(wildcard ../src/c3e/*.cpp) full_test.cpp
-OBJS = $(SRCS:.cpp=.o)
+SRCS = $(wildcard ../src/c3e/*.c) full_test.c
+OBJS = $(SRCS:.c=.o)
 
 TARGET = ../dist/full_test
 LIBS = -lm
@@ -13,7 +13,7 @@ $(TARGET): $(OBJS)
 	mkdir -p ../dist
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LIBS)
 
-%.o: %.cpp
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
