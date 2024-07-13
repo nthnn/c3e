@@ -58,7 +58,7 @@ typedef struct {
     uint32_t dimensions;
     size_t dimension_size;
 
-    c3e_matrix* layers;
+    c3e_matrix** matrices;
     c3e_vector* data;
 } c3e_tensor;
 
