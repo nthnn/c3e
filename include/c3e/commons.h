@@ -55,11 +55,11 @@ typedef struct {
 } c3e_svd;
 
 typedef struct {
-    size_t size;
-    void* data;
+    uint32_t dimensions;
+    size_t dimension_size;
 
-    uint32_t memory;
-    uint32_t allocs;
-} c3e_tensor_pool;
+    c3e_matrix* layers;
+    c3e_vector* data;
+} c3e_tensor;
 
 #endif
