@@ -21,7 +21,9 @@
 #include <c3e/commons.h>
 #include <c3e/matrix.h>
 #include <c3e/matrix_tuple.h>
+#include <c3e/random.h>
 #include <c3e/svd.h>
+#include <c3e/trigo.h>
 #include <c3e/vector.h>
 
 #endif
