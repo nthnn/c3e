@@ -23,6 +23,7 @@
 #include <c3e/matrix_tuple.h>
 #include <c3e/random.h>
 #include <c3e/svd.h>
+#include <c3e/tensor_pool.h>
 #include <c3e/trigo.h>
 #include <c3e/vector.h>
 
