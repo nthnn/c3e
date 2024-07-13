@@ -188,6 +188,17 @@ void test_vector() {
     print_vector("Random Vector", result);
     c3e_vector_free(result);
 
+    result = c3e_vector_random_bound(
+        size,
+        c3e_random(),
+        0.0, 1.0
+    );
+    print_vector(
+        "Random Vector with Bounds (0.0 - 1.0)",
+        result
+    );
+    c3e_vector_free(result);
+
     result = c3e_vector_copy(vector1);
     print_vector("Copy of Vector 1", result);
     c3e_vector_free(result);
