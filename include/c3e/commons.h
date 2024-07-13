@@ -18,6 +18,10 @@
 #ifndef C3E_COMMONS_H
 #define C3E_COMMONS_H
 
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
+
 #ifndef PI
 #define PI 3.14159265358979323846
 #endif
@@ -29,13 +33,13 @@ typedef float  c3e_number;
 #endif
 
 typedef struct {
-    int size;
+    uint32_t size;
     c3e_number* data;
 } c3e_vector;
 
 typedef struct {
-    int rows;
-    int cols;
+    uint32_t rows;
+    uint32_t cols;
     c3e_number* data;
 } c3e_matrix;
 
@@ -49,5 +53,13 @@ typedef struct {
     c3e_matrix* right;
     c3e_vector* singular;
 } c3e_svd;
+
+typedef struct {
+    size_t size;
+    void* data;
+
+    uint32_t memory;
+    uint32_t allocs;
+} c3e_tensor_pool;
 
 #endif
