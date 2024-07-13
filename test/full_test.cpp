@@ -181,7 +181,10 @@ void test_vector() {
     print_vector("Ones vector", result);
     c3e_vector_free(result);
 
-    result = c3e_vector_random(size, rand());
+    result = c3e_vector_random(
+        size,
+        c3e_random()
+    );
     print_vector("Random Vector", result);
     c3e_vector_free(result);
 
