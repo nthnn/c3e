@@ -563,6 +563,9 @@ void test_matrix() {
     c3e_matrix_free(matrix);
 }
 
+void test_tensor() {
+}
+
 int main() {
     printf("----------------Vector Tests----------------\r\n\r\n");
     test_vector();
@@ -574,6 +577,10 @@ int main() {
 
     printf("----------------Matrix Tests----------------\r\n\r\n");
     test_matrix();
+    printf("\r\n");
+
+    printf("----------------Tensor Tests----------------\r\n\r\n");
+    test_tensor();
     printf("\r\n");
 
     return 0;

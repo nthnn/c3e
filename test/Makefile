@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Os -static -I../include
+CFLAGS = -Wall -std=c17 -Os -static -I../include
 
 SRCS = $(wildcard ../src/c3e/*.c) full_test.c
 OBJS = $(SRCS:.c=.o)
