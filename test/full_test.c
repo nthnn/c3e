@@ -52,6 +52,48 @@ void print_matrix(const char* name, c3e_matrix* matrix) {
     printf("\r\n]\r\n\r\n");
 }
 
+void print_tensor(const char* name, c3e_tensor* tensor) {
+    printf("%s: \r\n", name);
+
+    printf("  - Data: [\r\n");
+    for(int i = 0, k = 0; i < tensor->data->size; i++) {
+        if(k == 3) {
+            printf("\r\n");
+            k = 0;
+        }
+
+        if(k == 0)
+            printf("    ");
+
+        printf("%0.2f ", tensor->data->data[i]);
+        k++;
+    }
+    printf("\r\n  ]\r\n\r\n");
+
+    printf("  - Matrices:\r\n");
+    for(uint32_t k = 0; k < tensor->dimensions; k++) {
+        printf("  (%d): [", k);
+
+        c3e_matrix* mtx = tensor->matrices[k];
+        for(int i = 0; i < mtx->rows; i++) {
+            printf("\r\n    ");
+
+            for(int j = 0; j < mtx->cols; j++)
+                printf(
+                    "%0.2f ",
+                    c3e_matrix_get_at(
+                        mtx,
+                        i, j
+                    )
+                );
+        }
+
+        printf("\r\n  ]\r\n");
+    }
+
+    printf("\r\n");
+}
+
 void test_vector() {
     size_t size = 6;
 
@@ -516,7 +558,10 @@ void test_matrix() {
     c3e_matrix_free(rsqrt_matrix);
 
     c3e_matrix* exp_matrix = c3e_matrix_exp(matrix);
-    print_matrix("Exponential of Identity Matrix", exp_matrix);
+    print_matrix(
+        "Exponential of Identity Matrix",
+        exp_matrix
+    );
     c3e_matrix_free(exp_matrix);
 
     c3e_matrix* log_cumsum_exp_matrix =
@@ -564,6 +609,73 @@ void test_matrix() {
 }
 
 void test_tensor() {
+    size_t dimension_size = 3;
+    uint32_t dimensions = 2;
+
+    c3e_matrix* matrix1_t1 = c3e_matrix_init(dimension_size, dimension_size);
+    c3e_matrix_fill(matrix1_t1, 1.0);
+
+    c3e_matrix* matrix2_t1 = c3e_matrix_init(dimension_size, dimension_size);
+    c3e_matrix_fill(matrix2_t1, 2.0);
+
+    c3e_vector* vector1_t1 = c3e_vector_ones(dimension_size);
+    c3e_vector* vector2_t1 = c3e_vector_ones(dimension_size);
+
+    c3e_matrix* matrices_t1[] = {matrix1_t1, matrix2_t1};
+    c3e_tensor* tensor1 = c3e_tensor_init(
+        dimension_size,
+        dimensions,
+        matrices_t1,
+        vector1_t1
+    );
+
+    if(tensor1 == NULL) {
+        printf("Error: Failed to create tensor1.\r\n");
+
+        c3e_matrix_free(matrix1_t1);
+        c3e_matrix_free(matrix2_t1);
+        c3e_vector_free(vector1_t1);
+        c3e_vector_free(vector2_t1);
+
+        return;
+    }
+
+    c3e_matrix* matrix1_t2 = c3e_matrix_init(dimension_size, dimension_size);
+    c3e_matrix_fill(matrix1_t2, 1.0);
+
+    c3e_matrix* matrix2_t2 = c3e_matrix_init(dimension_size, dimension_size);
+    c3e_matrix_fill(matrix2_t2, 2.0);
+
+    c3e_vector* vector1_t2 = c3e_vector_ones(dimension_size);
+    c3e_vector* vector2_t2 = c3e_vector_ones(dimension_size);
+
+    c3e_matrix* matrices_t2[] = {matrix1_t2, matrix2_t2};
+    c3e_tensor* tensor2 = c3e_tensor_init(
+        dimension_size,
+        dimensions,
+        matrices_t2,
+        vector2_t2
+    );
+
+    if(tensor2 == NULL) {
+        printf("Error: Failed to create tensor2.\r\n");
+
+        c3e_tensor_free(tensor1);
+        c3e_matrix_free(matrix1_t2);
+        c3e_matrix_free(matrix2_t2);
+        c3e_vector_free(vector1_t2);
+        c3e_vector_free(vector2_t2);
+
+        return;
+    }
+
+    c3e_tensor* added_tensor = c3e_tensor_add(tensor1, tensor2);
+    if(added_tensor == NULL)
+        printf("Error: Failed to add tensors.\r\n");
+    else print_tensor("Tensor Sum", added_tensor);
+
+    c3e_tensor_free(tensor1);
+    c3e_tensor_free(tensor2);
 }
 
 int main() {
