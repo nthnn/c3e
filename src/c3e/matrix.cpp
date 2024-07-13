@@ -17,6 +17,7 @@
 
 #include <c3e/matrix.h>
 #include <c3e/matrix_tuple.h>
+#include <c3e/random.h>
 #include <c3e/svd.h>
 #include <c3e/trigo.h>
 #include <c3e/vector.h>
@@ -148,8 +149,10 @@ c3e_matrix* c3e_matrix_identity(int side) {
 }
 
 c3e_matrix* c3e_matrix_random(int rows, int cols, int seed) {
+    #ifndef __linux__
     if(seed != 0)
         srand(seed);
+    #endif
 
     int size = rows * cols;
     c3e_matrix* matrix = c3e_matrix_init(rows, cols);
@@ -157,7 +160,7 @@ c3e_matrix* c3e_matrix_random(int rows, int cols, int seed) {
 
     for(int i = 0; i < size; i++)
         rand_array[i] =
-            (c3e_number) rand() /
+            c3e_random() /
             (c3e_number) RAND_MAX;
 
     c3e_matrix_set_elements(matrix, rand_array);

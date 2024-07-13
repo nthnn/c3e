@@ -16,6 +16,7 @@
  */
 
 #include <c3e/matrix.h>
+#include <c3e/random.h>
 #include <c3e/trigo.h>
 #include <c3e/vector.h>
 
@@ -226,12 +227,15 @@ c3e_vector* c3e_vector_ones(size_t size) {
 }
 
 c3e_vector* c3e_vector_random(size_t size, int seed) {
+    #ifndef __linux__
     if(seed != 0)
         srand(seed);
+    #endif
 
     c3e_vector* out = c3e_vector_init(size);
     for(int i = 0; i < size; i++)
-        out->data[i] = (c3e_number) rand() / (c3e_number) RAND_MAX;
+        out->data[i] = c3e_random() /
+            (c3e_number) RAND_MAX;
 
     return out;
 }
