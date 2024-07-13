@@ -42,6 +42,10 @@ c3e_matrix* c3e_matrix_full_like(c3e_matrix* matrix, c3e_number value);
 
 c3e_matrix* c3e_matrix_identity(int side);
 c3e_matrix* c3e_matrix_random(int rows, int cols, int seed);
+c3e_matrix* c3e_matrix_random_bound(
+    int rows, int cols, int seed,
+    c3e_number min, c3e_number max
+);
 
 c3e_matrix* c3e_matrix_copy(c3e_matrix* matrix);
 c3e_matrix* c3e_matrix_append(c3e_matrix* matrix, c3e_matrix* subject, int axis);
