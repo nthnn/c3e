@@ -37,3 +37,10 @@ c3e_number c3e_random() {
 
     return rand_num;
 }
+
+c3e_number c3e_random_bound(c3e_number min, c3e_number max) {
+    assert(min < max);
+
+    return min + (max - min) *
+        (c3e_random() / (RAND_MAX + 1.0));
+}
