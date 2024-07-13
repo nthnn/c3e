@@ -1,9 +1,12 @@
+#include <c3e/matrix.h>
 #include <c3e/tensor.h>
 #include <c3e/vector.h>
+#include <assert.h>
+#include <stdlib.h>
 
 c3e_tensor* c3e_tensor_init(
     size_t dimension_size,
-    uint32_t* dimensions,
+    uint32_t dimensions,
     c3e_matrix* layers,
     c3e_vector* data
 ) {
@@ -30,7 +33,7 @@ void c3e_tensor_free(c3e_tensor* tensor) {
     assert(tensor->layers != NULL);
 
     for(uint32_t i = 0; i < tensor->dimensions; i++)
-        c3e_matrix_free(tensor->layers[i]);
+        c3e_matrix_free(&tensor->layers[i]);
 
     c3e_vector_free(tensor->data);
     free(tensor);

@@ -5,7 +5,8 @@
 
 c3e_tensor* c3e_tensor_init(
     size_t dimension_size,
-    uint32_t* dimensions,
+    uint32_t dimensions,
+    c3e_matrix* layers,
     c3e_vector* data
 );
 
