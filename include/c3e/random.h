@@ -21,6 +21,7 @@
 #include <c3e/commons.h>
 
 c3e_number c3e_random();
+c3e_number c3e_random_pseudo();
 c3e_number c3e_random_bound(c3e_number min, c3e_number max);
 
 #endif

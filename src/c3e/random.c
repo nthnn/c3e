@@ -17,31 +17,52 @@
 
 #include <c3e/random.h>
 #include <assert.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 
 c3e_number c3e_random() {
-    c3e_number rand_num;
-
     #ifdef __linux__
-    FILE *urandom = fopen("/dev/urandom", "rb");
-    if(urandom == NULL)
-        return (c3e_number) rand();
+    int urandom = open("/dev/urandom", O_RDONLY);
 
-    if(!fread(&rand_num, sizeof(rand_num), 1, urandom))
-        return (c3e_number) rand();
+    if(urandom == -1) {
+        srand(time(NULL));
+        return c3e_random_pseudo();
+    }
 
-    fclose(urandom);
+    uint32_t rand_num;
+    ssize_t bytes_read = read(
+        urandom,
+        &rand_num,
+        sizeof(rand_num)
+    );
+    close(urandom);
+
+    if(bytes_read != sizeof(rand_num)) {
+        srand(time(NULL));
+        return c3e_random_pseudo();
+    }
+
+    srand(rand_num);
+    return c3e_random_pseudo();
+
     #else
-    rand_num = (c3e_number) rand();
+    srand(time(NULL));
+    return c3e_random_pseudo();
     #endif
-
-    return rand_num;
 }
 
-c3e_number c3e_random_bound(c3e_number min, c3e_number max) {
-    assert(min < max);
+c3e_number c3e_random_pseudo() {
+    return (c3e_number) rand();
+}
 
+c3e_number c3e_random_bound(
+    c3e_number min,
+    c3e_number max
+) {
+    assert(min < max);
     return min + (max - min) *
-        (c3e_random() / (RAND_MAX + 1.0));
+        c3e_random();
 }
