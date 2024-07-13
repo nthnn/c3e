@@ -39,6 +39,19 @@ void print_vector(c3e_vector* vector) {
     printf("\r\n]\r\n\r\n");
 }
 
+void print_matrix(c3e_matrix* matrix) {
+    printf("[");
+
+    for(int i = 0; i < matrix->rows; i++) {
+        printf("\r\n  ");
+
+        for(int j = 0; j < matrix->cols; j++)
+            printf("%0.2f ", c3e_matrix_get_at(matrix, i, j));
+    }
+
+    printf("\r\n]\r\n\r\n");
+}
+
 void test_vector() {
     size_t size = 6;
 
@@ -203,9 +216,52 @@ void test_svd() {
     printf("  - Singular (S) values:\r\n\t");
     for(int i = 0; i < svd.singular->size; i++)
         printf("%.2f ", c3e_vector_get(svd.singular, i));
+    printf("\r\n");
 
     c3e_svd_free(svd);
     c3e_matrix_free(matrix);
+}
+
+void test_matrix() {
+    c3e_matrix* matrix = c3e_matrix_init(3, 3);
+    c3e_number values[] = {1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0};
+    c3e_matrix_set_elements(matrix, values);
+
+    printf("Original Matrix:\n");
+    print_matrix(matrix);
+
+    c3e_matrix* transpose_matrix = c3e_matrix_transpose(matrix);
+    printf("\nTransposed Matrix:\n");
+    print_matrix(transpose_matrix);
+    c3e_matrix_free(transpose_matrix);
+
+    c3e_matrix* matrix2 = c3e_matrix_init(3, 3);
+    c3e_number values2[] = {9.0, 8.0, 7.0, 6.0, 5.0, 4.0, 3.0, 2.0, 1.0};
+    c3e_matrix_set_elements(matrix2, values2);
+
+    c3e_matrix* sum_matrix = c3e_matrix_add(matrix, matrix2);
+    printf("\nSum Matrix:\n");
+    print_matrix(sum_matrix);
+    c3e_matrix_free(sum_matrix);
+
+    c3e_matrix* mul_matrix = c3e_matrix_dot(matrix, matrix2);
+    printf("\nMultiplied Matrix:\n");
+    print_matrix(mul_matrix);
+    c3e_matrix_free(mul_matrix);
+
+    c3e_matrix* identity_matrix = c3e_matrix_identity(3);
+    c3e_matrix* inverse_matrix = c3e_matrix_inverse(identity_matrix);
+
+    printf("\nInverse of Identity Matrix:\n");
+    print_matrix(inverse_matrix);
+    c3e_matrix_free(identity_matrix);
+    c3e_matrix_free(inverse_matrix);
+
+    c3e_number determinant = c3e_matrix_determinant(matrix);
+    printf("\nDeterminant of the Matrix: %.2f\n", determinant);
+
+    c3e_matrix_free(matrix);
+    c3e_matrix_free(matrix2);
 }
 
 int main() {
@@ -215,6 +271,10 @@ int main() {
 
     printf("------Single-Value Decomposition Tests------\r\n\r\n");
     test_svd();
+    printf("\r\n");
+
+    printf("----------------Matrix Tests----------------\r\n\r\n");
+    test_matrix();
     printf("\r\n");
 
     return 0;
