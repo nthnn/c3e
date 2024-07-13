@@ -983,8 +983,9 @@ c3e_matrix* c3e_matrix_from_vec(c3e_vector* vector) {
 c3e_matrix* c3e_matrix_eigenvec(c3e_matrix* matrix) {
     c3e_matrix* eig = c3e_matrix_init(matrix->rows, matrix->cols);
     c3e_vector* eigenvalues = c3e_matrix_eigenvalues(matrix);
-    c3e_matrix* eigenvector;
-    c3e_matrix* original;
+
+    c3e_matrix* eigenvector = NULL;
+    c3e_matrix* original = NULL;
     c3e_svd svd;
 
     for(int i = 0; i < eigenvalues->size; i++) {
@@ -1006,11 +1007,16 @@ c3e_matrix* c3e_matrix_eigenvec(c3e_matrix* matrix) {
             MATRIX_ELEM_AT(eig, j, i) = eigenvector->data[j] / norm;
     }
 
-    c3e_matrix_free(eigenvector);
-    c3e_matrix_free(original);
-    c3e_vector_free(eigenvalues);
-    c3e_svd_free(svd);
+    if(eigenvector != NULL)
+        c3e_matrix_free(eigenvector);
 
+    if(original != NULL)
+        c3e_matrix_free(original);
+
+    if(eigenvalues != NULL)
+        c3e_vector_free(eigenvalues);
+
+    c3e_svd_free(svd);
     return eig;
 }
 
