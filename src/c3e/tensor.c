@@ -102,3 +102,126 @@ c3e_tensor* c3e_tensor_add(c3e_tensor* left, c3e_tensor* right) {
         sum_data
     );
 }
+
+c3e_tensor* c3e_tensor_sub(c3e_tensor* left, c3e_tensor* right) {
+    assert(left != NULL);
+    assert(right != NULL);
+
+    assert(left->dimensions == right->dimensions);
+    assert(left->dimension_size == right->dimension_size);
+
+    c3e_matrix* matrices[left->dimensions];
+    for(uint32_t i = 0; i < left->dimensions; i++) {
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+
+        matrices[i] = c3e_matrix_sub(
+            left->matrices[i],
+            right->matrices[i]
+        );
+    }
+
+    c3e_vector* sum_data = c3e_vector_sub(
+        left->data,
+        right->data
+    );
+    if(sum_data == NULL) {
+        for(uint32_t i = 0; i < left->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(
+        left->dimension_size,
+        left->dimensions,
+        matrices,
+        sum_data
+    );
+}
+
+c3e_tensor* c3e_tensor_mul(c3e_tensor* left, c3e_tensor* right) {
+    assert(left != NULL);
+    assert(right != NULL);
+
+    assert(left->dimensions == right->dimensions);
+    assert(left->dimension_size == right->dimension_size);
+
+    c3e_matrix* matrices[left->dimensions];
+    for(uint32_t i = 0; i < left->dimensions; i++) {
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+
+        matrices[i] = c3e_matrix_mul(
+            left->matrices[i],
+            right->matrices[i]
+        );
+    }
+
+    c3e_vector* sum_data = c3e_vector_mul(
+        left->data,
+        right->data
+    );
+    if(sum_data == NULL) {
+        for(uint32_t i = 0; i < left->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(
+        left->dimension_size,
+        left->dimensions,
+        matrices,
+        sum_data
+    );
+}
+
+c3e_tensor* c3e_tensor_div(c3e_tensor* left, c3e_tensor* right) {
+    assert(left != NULL);
+    assert(right != NULL);
+
+    assert(left->dimensions == right->dimensions);
+    assert(left->dimension_size == right->dimension_size);
+
+    c3e_matrix* matrices[left->dimensions];
+    for(uint32_t i = 0; i < left->dimensions; i++) {
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+
+        matrices[i] = c3e_matrix_div(
+            left->matrices[i],
+            right->matrices[i]
+        );
+    }
+
+    c3e_vector* sum_data = c3e_vector_div(
+        left->data,
+        right->data
+    );
+    if(sum_data == NULL) {
+        for(uint32_t i = 0; i < left->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(
+        left->dimension_size,
+        left->dimensions,
+        matrices,
+        sum_data
+    );
+}
