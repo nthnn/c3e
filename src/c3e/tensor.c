@@ -205,7 +205,6 @@ c3e_tensor* c3e_tensor_scale(c3e_tensor* tensor, int x) {
 
 c3e_tensor* c3e_tensor_exp(c3e_tensor* tensor) {
     assert(tensor != NULL);
-    assert(x != 0);
 
     c3e_matrix* matrices[tensor->dimensions];
     for(uint32_t i = 0; i < tensor->dimensions; i++) {
