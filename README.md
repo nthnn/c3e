@@ -16,25 +16,52 @@ Last but not least is the SDK driver, designed for application development, enab
 
 ## Use Cases
 
-1. **Scientific Research and Simulations**
+1. **Scientific Computing**
 
-    The C3E is perfectly suited for scientific research that requires intensive computations, such as simulations in physics, chemistry, and biology. Its ability to handle large matrices and tensors makes it an invaluable tool for modeling complex systems and processes. Researchers can leverage the C3E to perform high-speed calculations, enabling them to explore and analyze phenomena in greater detail and at a faster pace.
+    - Scientists can run large-scale simulations for climate modeling, astrophysics, and molecular dynamics by utilizing the x86-based C3EPU. These simulations require immense computational power to process complex mathematical models and large datasets efficiently, ensuring accurate and timely results.
 
-2. **Machine Learning and Artificial Intelligence**
+    - Researchers can analyze vast datasets, such as genomic data or particle physics data, using the C3EPU to perform complex calculations and pattern recognition tasks. This capability is crucial for making new scientific discoveries and advancing our understanding of various phenomena.
 
-    Machine learning algorithms often involve heavy matrix and tensor computations, particularly in areas such as neural network training and inference. The C3E's powerful processing capabilities make it an excellent choice for embedded AI applications, from edge devices to more complex systems. Developers can utilize the C3E to accelerate machine learning tasks, improving the performance and efficiency of AI solutions.
+2. **Artificial Intelligence and Machine Learning**
 
-3. **Signal and Image Processing**
+    - The C3EPU can accelerate the training of deep learning models, providing the computational power needed for large datasets and complex architectures and algorithms. This acceleration is essential for reducing training times and improving model accuracy in fields such as image recognition, natural language processing, and autonomous systems.
 
-    Applications in signal and image processing, such as real-time video analysis, require rapid and accurate mathematical computations. The C3E can efficiently process large volumes of data, making it ideal for tasks like filtering, transformation, and feature extraction. Its high-speed SPI communication ensures minimal latency, crucial for real-time processing applications.
+    - Deploying the RISC-V based C3EPU in edge devices allows for efficient inference processing. This enables real-time AI applications, such as object detection, facial recognition, and speech recognition, to run locally without relying on cloud-based server resources, enhancing responsiveness and privacy.
 
-4. **Embedded Systems and IoT**
+    - With the ability to perform complex computations, IoT devices powered by C3E can make intelligent decisions and operate autonomously. This is particularly useful in applications like smart homes, industrial automation, and healthcare monitoring systems, where real-time data processing and decision-making are critical.
 
-    The C3E offers a powerful yet compact solution for complex computational tasks. Its efficient processing capabilities make it suitable for a variety of IoT applications, from smart sensors to automated control systems. The C3E can handle data processing locally, reducing the need for constant cloud communication and enhancing the responsiveness and reliability of IoT devices.
+    - Robots equipped with C3E can process sensor data in real-time, enabling efficient path planning, obstacle avoidance, and decision-making for autonomous navigation. This is vital for applications in logistics, manufacturing, and exploration where robots need to operate independently in dynamic environments.
+
+    - C3E can be used to enhance the capabilities of robotic vision systems. This allows robots to recognize objects, track movements, and interact with their surroundings more effectively, improving their utility in tasks like assembly, inspection, and service robots.
+
+3. **Embedded Systems**
+
+    - Embedded systems, such as those in automotive applications or industrial machinery, can leverage the RISC-V C3EPU to process data from sensors in real-time. This ensures precise control and monitoring, which is essential for maintaining safety, efficiency, and reliability in critical applications.
+
+    - C3E can power wearable devices, providing the necessary computational resources for applications like health monitoring, fitness tracking, and augmented reality. These devices benefit from the low-power, high-performance capabilities of the C3EPU to deliver advanced features and functionalities.
+
+4. **Gaming and Graphics**
+
+    - Game developers can use C3E to create more realistic physics simulations, advanced AI behaviors, and detailed graphics rendering. This enhances the overall gaming experience by providing more immersive and interactive environments.
+
+    - C3E can power Virtual Reality (VR) and Augmented Reality (AR) applications, providing the computational strength required for real-time rendering and interaction. This makes virtual experiences more immersive and responsive, essential for applications in entertainment, education, and training.
+
+    - The C3E can also improve video editing and processing tasks by accelerating the rendering of high-resolution videos and complex effects. This capability is essential for producing high-quality multimedia content.
+
+    - The framework can be used for real-time audio processing, improving the quality of sound in applications such as music production, broadcasting, and live performance. This ensures superior audio experiences for audiences.
 
 ## License
 
-The C3E is under two (2) licenses:
+See [BSD 2-Clause License](https://opensource.org/license/bsd-2-clause).
 
-1. The source files is under the [BSD 2-Clause License](LICENSE); while,
-2. The hardware design, such as schematics and PCB files is under the [CERN Open Hardware License v2 (Strongly Reciprocal)](https://ohwr.org/project/cernohl/-/wikis/uploads/819d71bea3458f71fba6cf4fb0f2de6b/cern_ohl_s_v2.txt).
+```
+Copyright 2024 Nathanne Isip
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
