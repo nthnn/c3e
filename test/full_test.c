@@ -404,84 +404,80 @@ void test_tensor() {
     size_t dimension_size = 3;
     uint32_t dimensions = 2;
 
-    c3e_matrix* matrix1_t1 = c3e_matrix_init(dimension_size, dimension_size);
-    c3e_matrix_fill(matrix1_t1, 1.0);
-
-    c3e_matrix* matrix2_t1 = c3e_matrix_init(dimension_size, dimension_size);
-    c3e_matrix_fill(matrix2_t1, 2.0);
-
-    c3e_vector* vector1_t1 = c3e_vector_ones(dimension_size);
-    c3e_vector* vector2_t1 = c3e_vector_ones(dimension_size);
-
-    c3e_matrix* matrices_t1[] = {matrix1_t1, matrix2_t1};
+    c3e_vector* vector1 = c3e_vector_random(dimension_size, 0);
+    c3e_matrix* matrices_t1[] = {
+        c3e_matrix_random(dimension_size, dimension_size, 0),
+        c3e_matrix_random(dimension_size, dimension_size, 0)
+    };
     c3e_tensor* tensor1 = c3e_tensor_init(
         dimension_size,
         dimensions,
         matrices_t1,
-        vector1_t1
+        vector1
     );
 
     if(tensor1 == NULL) {
         printf("Error: Failed to create tensor1.\r\n");
 
-        c3e_matrix_free(matrix1_t1);
-        c3e_matrix_free(matrix2_t1);
-        c3e_vector_free(vector1_t1);
-        c3e_vector_free(vector2_t1);
+        c3e_matrix_free(matrices_t1[0]);
+        c3e_matrix_free(matrices_t1[1]);
+        c3e_vector_free(vector1);
 
         return;
     }
 
-    c3e_matrix* matrix1_t2 = c3e_matrix_init(dimension_size, dimension_size);
-    c3e_matrix_fill(matrix1_t2, 1.0);
-
-    c3e_matrix* matrix2_t2 = c3e_matrix_init(dimension_size, dimension_size);
-    c3e_matrix_fill(matrix2_t2, 2.0);
-
-    c3e_vector* vector1_t2 = c3e_vector_ones(dimension_size);
-    c3e_vector* vector2_t2 = c3e_vector_ones(dimension_size);
-
-    c3e_matrix* matrices_t2[] = {matrix1_t2, matrix2_t2};
+    c3e_vector* vector2 = c3e_vector_random(dimension_size, 0);
+    c3e_matrix* matrices_t2[] = {
+        c3e_matrix_random(dimension_size, dimension_size, 0),
+        c3e_matrix_random(dimension_size, dimension_size, 0)
+    };
     c3e_tensor* tensor2 = c3e_tensor_init(
         dimension_size,
         dimensions,
         matrices_t2,
-        vector2_t2
+        vector2
     );
 
     if(tensor2 == NULL) {
         printf("Error: Failed to create tensor2.\r\n");
 
         c3e_tensor_free(tensor1);
-        c3e_matrix_free(matrix1_t2);
-        c3e_matrix_free(matrix2_t2);
-        c3e_vector_free(vector1_t2);
-        c3e_vector_free(vector2_t2);
+        c3e_matrix_free(matrices_t2[0]);
+        c3e_matrix_free(matrices_t2[1]);
+        c3e_vector_free(vector2);
 
         return;
     }
 
     c3e_tensor* sum_tensor = c3e_tensor_add(tensor1, tensor2);
-    if(sum_tensor == NULL)
+    if(sum_tensor == NULL) {
         printf("Error: Failed to add tensors.\r\n");
+        return;
+    }
     else print_tensor("Tensor Sum", sum_tensor);
     c3e_tensor_free(sum_tensor);
 
     c3e_tensor* diff_tensor = c3e_tensor_sub(tensor1, tensor2);
-    if(diff_tensor == NULL)
+    if(diff_tensor == NULL) {
         printf("Error: Failed to subtract tensors.\r\n");
+        return;
+    }
     else print_tensor("Tensor Difference", diff_tensor);
     c3e_tensor_free(diff_tensor);
 
     c3e_tensor* factor_tensor = c3e_tensor_mul(tensor1, tensor2);
-    if(factor_tensor == NULL)
+    if(factor_tensor == NULL) {
         printf("Error: Failed to multiply tensors.\r\n");
+        return;
+    }
     else print_tensor("Tensor Factor", factor_tensor);
     c3e_tensor_free(factor_tensor);
 
     c3e_tensor* quotient_tensor = c3e_tensor_div(tensor1, tensor2);
-    if(quotient_tensor == NULL)
+    if(quotient_tensor == NULL) {
         printf("Error: Failed to divide tensors.\r\n");
+        return;
+    }
     else print_tensor("Tensor Quotient", quotient_tensor);
     c3e_tensor_free(quotient_tensor);
 
