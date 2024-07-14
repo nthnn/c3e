@@ -4,36 +4,30 @@
 #include <assert.h>
 #include <stdlib.h>
 
-c3e_tensor* c3e_tensor_init(
-    size_t dimension_size,
-    uint32_t dimensions,
-    c3e_matrix** matrices,
-    c3e_vector* data
-) {
-    assert(dimension_size);
-    assert(dimensions != 0);
+c3e_tensor* c3e_tensor_init(size_t dsize, uint32_t dims, c3e_matrix** matrices, c3e_vector* data) {
+    assert(dsize);
+    assert(dims != 0);
 
     assert(matrices != NULL);
 
     assert(data != NULL);
-    assert(data->size == dimension_size);
+    assert(data->size == dsize);
 
-    c3e_tensor* tensor = (c3e_tensor*)
-        malloc(sizeof(c3e_tensor));
+    c3e_tensor* tensor = (c3e_tensor*) malloc(sizeof(c3e_tensor));
     if(tensor == NULL)
         return NULL;
 
-    tensor->dimensions = dimensions;
-    tensor->dimension_size = dimension_size;
+    tensor->dimensions = dims;
+    tensor->dimension_size = dsize;
     tensor->data = data;
 
-    tensor->matrices = (c3e_matrix**)malloc(dimensions * sizeof(c3e_matrix*));
+    tensor->matrices = (c3e_matrix**)malloc(dims * sizeof(c3e_matrix*));
     if(tensor->matrices == NULL) {
         free(tensor);
         return NULL;
     }
 
-    for(uint32_t i = 0; i < dimensions; i++) {
+    for(uint32_t i = 0; i < dims; i++) {
         tensor->matrices[i] = matrices[i];
 
         if(tensor->matrices[i] == NULL) {
@@ -78,16 +72,10 @@ c3e_tensor* c3e_tensor_add(c3e_tensor* left, c3e_tensor* right) {
             return NULL;
         }
 
-        matrices[i] = c3e_matrix_add(
-            left->matrices[i],
-            right->matrices[i]
-        );
+        matrices[i] = c3e_matrix_add(left->matrices[i], right->matrices[i]);
     }
 
-    c3e_vector* sum_data = c3e_vector_add(
-        left->data,
-        right->data
-    );
+    c3e_vector* sum_data = c3e_vector_add(left->data, right->data);
     if(sum_data == NULL) {
         for(uint32_t i = 0; i < left->dimensions; i++)
             c3e_matrix_free(matrices[i]);
@@ -95,12 +83,7 @@ c3e_tensor* c3e_tensor_add(c3e_tensor* left, c3e_tensor* right) {
         return NULL;
     }
 
-    return c3e_tensor_init(
-        left->dimension_size,
-        left->dimensions,
-        matrices,
-        sum_data
-    );
+    return c3e_tensor_init(left->dimension_size, left->dimensions, matrices, sum_data);
 }
 
 c3e_tensor* c3e_tensor_sub(c3e_tensor* left, c3e_tensor* right) {
@@ -119,29 +102,18 @@ c3e_tensor* c3e_tensor_sub(c3e_tensor* left, c3e_tensor* right) {
             return NULL;
         }
 
-        matrices[i] = c3e_matrix_sub(
-            left->matrices[i],
-            right->matrices[i]
-        );
+        matrices[i] = c3e_matrix_sub(left->matrices[i], right->matrices[i]);
     }
 
-    c3e_vector* sum_data = c3e_vector_sub(
-        left->data,
-        right->data
-    );
-    if(sum_data == NULL) {
+    c3e_vector* sub_data = c3e_vector_sub(left->data, right->data);
+    if(sub_data == NULL) {
         for(uint32_t i = 0; i < left->dimensions; i++)
             c3e_matrix_free(matrices[i]);
 
         return NULL;
     }
 
-    return c3e_tensor_init(
-        left->dimension_size,
-        left->dimensions,
-        matrices,
-        sum_data
-    );
+    return c3e_tensor_init(left->dimension_size, left->dimensions, matrices, sub_data);
 }
 
 c3e_tensor* c3e_tensor_mul(c3e_tensor* left, c3e_tensor* right) {
@@ -160,29 +132,18 @@ c3e_tensor* c3e_tensor_mul(c3e_tensor* left, c3e_tensor* right) {
             return NULL;
         }
 
-        matrices[i] = c3e_matrix_mul(
-            left->matrices[i],
-            right->matrices[i]
-        );
+        matrices[i] = c3e_matrix_mul(left->matrices[i], right->matrices[i]);
     }
 
-    c3e_vector* sum_data = c3e_vector_mul(
-        left->data,
-        right->data
-    );
-    if(sum_data == NULL) {
+    c3e_vector* mul_data = c3e_vector_mul(left->data, right->data);
+    if(mul_data == NULL) {
         for(uint32_t i = 0; i < left->dimensions; i++)
             c3e_matrix_free(matrices[i]);
 
         return NULL;
     }
 
-    return c3e_tensor_init(
-        left->dimension_size,
-        left->dimensions,
-        matrices,
-        sum_data
-    );
+    return c3e_tensor_init(left->dimension_size, left->dimensions, matrices, mul_data);
 }
 
 c3e_tensor* c3e_tensor_div(c3e_tensor* left, c3e_tensor* right) {
@@ -201,27 +162,70 @@ c3e_tensor* c3e_tensor_div(c3e_tensor* left, c3e_tensor* right) {
             return NULL;
         }
 
-        matrices[i] = c3e_matrix_div(
-            left->matrices[i],
-            right->matrices[i]
-        );
+        matrices[i] = c3e_matrix_div(left->matrices[i], right->matrices[i]);
     }
 
-    c3e_vector* sum_data = c3e_vector_div(
-        left->data,
-        right->data
-    );
-    if(sum_data == NULL) {
+    c3e_vector* div_data = c3e_vector_div(left->data, right->data);
+    if(div_data == NULL) {
         for(uint32_t i = 0; i < left->dimensions; i++)
             c3e_matrix_free(matrices[i]);
 
         return NULL;
     }
 
-    return c3e_tensor_init(
-        left->dimension_size,
-        left->dimensions,
-        matrices,
-        sum_data
-    );
+    return c3e_tensor_init(left->dimension_size, left->dimensions, matrices, div_data);
+}
+
+c3e_tensor* c3e_tensor_scale(c3e_tensor* tensor, int x) {
+    assert(tensor != NULL);
+    assert(x != 0);
+
+    c3e_matrix* matrices[tensor->dimensions];
+    for(uint32_t i = 0; i < tensor->dimensions; i++) {
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+
+        matrices[i] = c3e_matrix_scale(tensor->matrices[i], x);
+    }
+
+    c3e_vector* scaled_data = c3e_vector_scale(tensor->data, x);
+    if(scaled_data == NULL) {
+        for(uint32_t i = 0; i < tensor->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(tensor->dimension_size, tensor->dimensions, matrices, scaled_data);
+}
+
+c3e_tensor* c3e_tensor_exp(c3e_tensor* tensor) {
+    assert(tensor != NULL);
+    assert(x != 0);
+
+    c3e_matrix* matrices[tensor->dimensions];
+    for(uint32_t i = 0; i < tensor->dimensions; i++) {
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+
+        matrices[i] = c3e_matrix_exp(tensor->matrices[i]);
+    }
+
+    c3e_vector* exp_data = c3e_vector_exp(tensor->data);
+    if(exp_data == NULL) {
+        for(uint32_t i = 0; i < tensor->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(tensor->dimension_size, tensor->dimensions, matrices, exp_data);
 }
