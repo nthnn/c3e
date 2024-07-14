@@ -669,10 +669,29 @@ void test_tensor() {
         return;
     }
 
-    c3e_tensor* added_tensor = c3e_tensor_add(tensor1, tensor2);
-    if(added_tensor == NULL)
+    c3e_tensor* sum_tensor = c3e_tensor_add(tensor1, tensor2);
+    if(sum_tensor == NULL)
         printf("Error: Failed to add tensors.\r\n");
-    else print_tensor("Tensor Sum", added_tensor);
+    else print_tensor("Tensor Sum", sum_tensor);
+    c3e_tensor_free(sum_tensor);
+
+    c3e_tensor* diff_tensor = c3e_tensor_sub(tensor1, tensor2);
+    if(diff_tensor == NULL)
+        printf("Error: Failed to subtract tensors.\r\n");
+    else print_tensor("Tensor Difference", diff_tensor);
+    c3e_tensor_free(diff_tensor);
+
+    c3e_tensor* factor_tensor = c3e_tensor_mul(tensor1, tensor2);
+    if(factor_tensor == NULL)
+        printf("Error: Failed to multiply tensors.\r\n");
+    else print_tensor("Tensor Factor", factor_tensor);
+    c3e_tensor_free(factor_tensor);
+
+    c3e_tensor* quotient_tensor = c3e_tensor_div(tensor1, tensor2);
+    if(quotient_tensor == NULL)
+        printf("Error: Failed to divide tensors.\r\n");
+    else print_tensor("Tensor Quotient", quotient_tensor);
+    c3e_tensor_free(quotient_tensor);
 
     c3e_tensor_free(tensor1);
     c3e_tensor_free(tensor2);
