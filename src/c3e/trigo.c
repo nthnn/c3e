@@ -62,9 +62,7 @@ c3e_number c3e_gamma(c3e_number x) {
     assert(x > 0.0);
 
     if(x < 0.001)
-        return 1.0 / (x * (
-            1.0 + 0.577215664901532860606512090 * x
-        ));
+        return 1.0 / (x * (1.0 + 0.577215664901532860606512090 * x));
 
     if(x < 12.0) {
         c3e_number y = x;
@@ -78,9 +76,7 @@ c3e_number c3e_gamma(c3e_number x) {
             y -= n;
         }
 
-        c3e_number numerator = 0.0,
-            denominator = 1.0,
-            z = y - 1;
+        c3e_number numerator = 0.0, denominator = 1.0, z = y - 1;
         for(int i = 0; i < 8; i++) {
             numerator = (numerator + numcoeff_approx[i]) * z;
             denominator = denominator * z + dencoeff_approx[i];
@@ -113,7 +109,5 @@ c3e_number c3e_log_gamma(c3e_number x) {
         sum += asymptotic_series[i];
     }
 
-    return (x - 0.5) * log(x) - x +
-        0.91893853320467274178032973640562 +
-        (sum / x);
+    return (x - 0.5) * log(x) - x + 0.91893853320467274178032973640562 + (sum / x);
 }

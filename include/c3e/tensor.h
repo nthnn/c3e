@@ -3,13 +3,7 @@
 
 #include <c3e/commons.h>
 
-c3e_tensor* c3e_tensor_init(
-    size_t dimension_size,
-    uint32_t dimensions,
-    c3e_matrix** matrices,
-    c3e_vector* data
-);
-
+c3e_tensor* c3e_tensor_init(size_t dsize, uint32_t dims, c3e_matrix** matrices, c3e_vector* data);
 void c3e_tensor_free(c3e_tensor* tensor);
 
 c3e_tensor* c3e_tensor_add(c3e_tensor* left, c3e_tensor* right);

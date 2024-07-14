@@ -43,12 +43,7 @@ c3e_number c3e_vector_cross(c3e_vector* vector, c3e_vector* subject);
 c3e_number c3e_vector_projection(c3e_vector* vector, c3e_vector* subject);
 
 c3e_number c3e_vector_dot(c3e_vector* vector, c3e_vector* subject);
-c3e_number c3e_vector_dot_cols(
-    c3e_matrix* matrix,
-    int col1,
-    c3e_matrix* subject,
-    int col2
-);
+c3e_number c3e_vector_dot_cols(c3e_matrix* matrix, int col1, c3e_matrix* subject, int col2);
 
 c3e_vector* c3e_vector_normalize(c3e_vector* vector);
 c3e_vector* c3e_vector_transform(c3e_vector* vector, c3e_matrix* matrix);
@@ -58,10 +53,7 @@ c3e_vector* c3e_vector_zeros(size_t size);
 c3e_vector* c3e_vector_ones(size_t size);
 
 c3e_vector* c3e_vector_random(size_t size, int seed);
-c3e_vector* c3e_vector_random_bound(
-    size_t size, int seed,
-    c3e_number min, c3e_number max
-);
+c3e_vector* c3e_vector_random_bound(size_t size, int seed, c3e_number min, c3e_number max);
 
 bool c3e_vector_equal(c3e_vector* vector, c3e_vector* subject);
 bool c3e_vector_all_close(c3e_vector* vector, c3e_vector* subject);

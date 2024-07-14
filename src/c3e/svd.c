@@ -37,10 +37,8 @@ c3e_svd c3e_svd_init(c3e_matrix* matrix) {
         singular = c3e_matrix_transpose(right_sg.b);
         right = c3e_matrix_mul(right, right_sg.a);
 
-        if(c3e_vector_all_close(
-            c3e_matrix_diagonal(singular, 0),
-            c3e_vector_zeros(singular->rows)
-        )) break;
+        if(c3e_vector_all_close(c3e_matrix_diagonal(singular, 0), c3e_vector_zeros(singular->rows)))
+            break;
     }
 
     c3e_vector* sigma = c3e_matrix_diagonal(singular, 0);

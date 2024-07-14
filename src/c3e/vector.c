@@ -41,8 +41,7 @@ c3e_number c3e_vector_length(c3e_matrix* matrix, int col) {
     c3e_number sum = 0.0;
 
     for(int i = 0; i < matrix->rows; i++)
-        sum += MATRIX_ELEM_AT(matrix, i, col) *
-            MATRIX_ELEM_AT(matrix, i, col);
+        sum += MATRIX_ELEM(matrix, i, col) * MATRIX_ELEM(matrix, i, col);
 
     return sqrt(sum);
 }
@@ -156,8 +155,7 @@ c3e_number c3e_vector_cross(c3e_vector* vector, c3e_vector* subject) {
 }
 
 c3e_number c3e_vector_projection(c3e_vector* vector, c3e_vector* subject) {
-    return c3e_vector_dot(vector, subject) /
-        c3e_vector_norm(subject);
+    return c3e_vector_dot(vector, subject) / c3e_vector_norm(subject);
 }
 
 c3e_number c3e_vector_dot(c3e_vector* vector, c3e_vector* subject) {
@@ -170,17 +168,11 @@ c3e_number c3e_vector_dot(c3e_vector* vector, c3e_vector* subject) {
     return out;
 }
 
-c3e_number c3e_vector_dot_cols(
-    c3e_matrix* matrix,
-    int col1,
-    c3e_matrix* subject,
-    int col2
-) {
+c3e_number c3e_vector_dot_cols(c3e_matrix* matrix, int col1, c3e_matrix* subject, int col2) {
     c3e_number dot = 0;
 
     for(int i = 0; i < matrix->rows; i++)
-        dot += MATRIX_ELEM_AT(matrix, i, col1) *
-            MATRIX_ELEM_AT(subject, i, col2);
+        dot += MATRIX_ELEM(matrix, i, col1) * MATRIX_ELEM(subject, i, col2);
 
     return dot;
 }
@@ -201,9 +193,7 @@ c3e_vector* c3e_vector_transform(c3e_vector* vector, c3e_matrix* matrix) {
     c3e_vector* out = c3e_vector_zeros(matrix->rows);
     for(int i = 0; i < matrix->rows; i++)
         for(int j = 0; j < matrix->cols; j++)
-            out->data[i] +=
-                MATRIX_ELEM_AT(matrix, i, j) *
-                vector->data[j];
+            out->data[i] += MATRIX_ELEM(matrix, i, j) * vector->data[j];
 
     return out;
 }
@@ -234,16 +224,12 @@ c3e_vector* c3e_vector_random(size_t size, int seed) {
 
     c3e_vector* out = c3e_vector_init(size);
     for(int i = 0; i < size; i++)
-        out->data[i] = c3e_random() /
-            (c3e_number) RAND_MAX;
+        out->data[i] = c3e_random() / (c3e_number) RAND_MAX;
 
     return out;
 }
 
-c3e_vector* c3e_vector_random_bound(
-    size_t size, int seed,
-    c3e_number min, c3e_number max
-) {
+c3e_vector* c3e_vector_random_bound(size_t size, int seed, c3e_number min, c3e_number max) {
     #ifndef __linux__
     if(seed != 0)
         srand(seed);
@@ -251,14 +237,14 @@ c3e_vector* c3e_vector_random_bound(
 
     c3e_vector* out = c3e_vector_init(size);
     for(int i = 0; i < size; i++)
-        out->data[i] = c3e_random_bound(min, max) /
-            (c3e_number) RAND_MAX;
+        out->data[i] = c3e_random_bound(min, max) / (c3e_number) RAND_MAX;
 
     return out;
 }
 
 c3e_vector* c3e_vector_copy(c3e_vector* vector) {
     c3e_vector* out = c3e_vector_init(vector->size);
+
     for(int i = 0; i < vector->size; i++)
         out->data[i] = vector->data[i];
 
@@ -281,8 +267,7 @@ bool c3e_vector_all_close(c3e_vector* vector, c3e_vector* subject) {
         return false;
 
     for(int i = 0; i < vector->size; i++)
-        if(fabs(vector->data[i] - subject->data[i]) >
-            (1e-08 + 1e-05 * fabs(subject->data[i])))
+        if(fabs(vector->data[i] - subject->data[i]) > (1e-08 + 1e-05 * fabs(subject->data[i])))
             return false;
 
     return true;

@@ -20,7 +20,7 @@
 
 #include <c3e/commons.h>
 
-#define MATRIX_ELEM_AT(matrix, row, col) \
+#define MATRIX_ELEM(matrix, row, col) \
     (matrix)->data[(row) * (matrix)->cols + (col)]
 
 c3e_matrix* c3e_matrix_init(int rows, int cols);
@@ -42,10 +42,7 @@ c3e_matrix* c3e_matrix_full_like(c3e_matrix* matrix, c3e_number value);
 
 c3e_matrix* c3e_matrix_identity(int side);
 c3e_matrix* c3e_matrix_random(int rows, int cols, int seed);
-c3e_matrix* c3e_matrix_random_bound(
-    int rows, int cols, int seed,
-    c3e_number min, c3e_number max
-);
+c3e_matrix* c3e_matrix_random_bound(int rows, int cols, int seed, c3e_number min, c3e_number max);
 
 c3e_matrix* c3e_matrix_copy(c3e_matrix* matrix);
 c3e_matrix* c3e_matrix_append(c3e_matrix* matrix, c3e_matrix* subject, int axis);
@@ -59,34 +56,11 @@ c3e_matrix* c3e_matrix_dot(c3e_matrix* matrix, c3e_matrix* subject);
 c3e_matrix* c3e_matrix_scale(c3e_matrix* matrix, int x);
 c3e_matrix* c3e_matrix_transpose(c3e_matrix* matrix);
 
-c3e_matrix* c3e_matrix_slice(
-    c3e_matrix* matrix,
-    int from_rows,
-    int to_rows,
-    int from_cols,
-    int to_cols
-);
+c3e_matrix* c3e_matrix_slice(c3e_matrix* matrix, int frows, int trows, int fcols, int tcols);
+void c3e_matrix_col_copy(c3e_matrix* matrix, int col, c3e_matrix* dst, int dst_col);
 
-void matrix_col_copy(
-    c3e_matrix* matrix,
-    int col,
-    c3e_matrix* dst,
-    int dst_col
-);
-
-void matrix_col_subtract(
-    c3e_matrix* matrix,
-    int col,
-    c3e_matrix* dst,
-    int dst_col,
-    c3e_number scalar
-);
-
-void matrix_col_divide(
-    c3e_matrix* matrix,
-    int col,
-    c3e_number scalar
-);
+void c3e_matrix_col_sub(c3e_matrix* matrix, int col, c3e_matrix* dst, int dcol, c3e_number scalar);
+void c3e_matrix_col_div(c3e_matrix* matrix, int col, c3e_number scalar);
 
 c3e_number c3e_matrix_trace(c3e_matrix* matrix);
 c3e_number c3e_matrix_determinant(c3e_matrix* matrix);
@@ -160,11 +134,7 @@ c3e_matrix* c3e_matrix_tanh(c3e_matrix* matrix);
 c3e_matrix* c3e_matrix_abs(c3e_matrix* matrix);
 c3e_matrix* c3e_matrix_fabs(c3e_matrix* matrix);
 
-c3e_matrix* c3e_matrix_a_range(
-    c3e_number start,
-    c3e_number end,
-    c3e_number step
-);
+c3e_matrix* c3e_matrix_a_range(c3e_number start, c3e_number end, c3e_number step);
 
 c3e_matrix* c3e_matrix_cum_sum(c3e_matrix* matrix);
 c3e_matrix* c3e_matrix_cum_product(c3e_matrix* matrix);

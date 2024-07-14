@@ -26,28 +26,22 @@ c3e_matrix_tuple c3e_matrix_qr_decomp(c3e_matrix* matrix) {
     assert(c3e_matrix_determinant(matrix) != 0.0);
 
     c3e_matrix* original = c3e_matrix_copy(matrix);
-    c3e_matrix* orthogonal = c3e_matrix_zeros(
-        matrix->rows,
-        matrix->cols
-    );
-    c3e_matrix* uppertri = c3e_matrix_zeros(
-        matrix->rows,
-        matrix->cols
-    );
+    c3e_matrix* orthogonal = c3e_matrix_zeros(matrix->rows, matrix->cols);
+    c3e_matrix* uppertri = c3e_matrix_zeros(matrix->rows, matrix->cols);
 
     for(int i = 0; i < original->cols; i++) {
-        matrix_col_copy(original, i, orthogonal, i);
+        c3e_matrix_col_copy(original, i, orthogonal, i);
 
         for(int j = 0; j < i; j++) {
             c3e_number r = c3e_vector_dot_cols(orthogonal, i, orthogonal, j); 
 
-            MATRIX_ELEM_AT(uppertri, j, i) = r;
-            matrix_col_subtract(orthogonal, i, orthogonal, j, r);
+            MATRIX_ELEM(uppertri, j, i) = r;
+            c3e_matrix_col_sub(orthogonal, i, orthogonal, j, r);
         }
 
         c3e_number norm = c3e_vector_length(orthogonal, i);
-        MATRIX_ELEM_AT(uppertri, i, i) = norm;
-        matrix_col_divide(orthogonal, i, norm);
+        MATRIX_ELEM(uppertri, i, i) = norm;
+        c3e_matrix_col_div(orthogonal, i, norm);
     }
 
     c3e_matrix_tuple tuple;
@@ -58,36 +52,31 @@ c3e_matrix_tuple c3e_matrix_qr_decomp(c3e_matrix* matrix) {
     return tuple;
 }
 
-c3e_matrix_tuple c3e_matrix_lu_decomp(c3e_matrix* original) {
-    assert(original->rows == original->cols);
+c3e_matrix_tuple c3e_matrix_lu_decomp(c3e_matrix* orig) {
+    assert(orig->rows == orig->cols);
 
-    int n = original->rows;
+    int n = orig->rows;
     c3e_matrix* lower = c3e_matrix_init(n, n);
     c3e_matrix* upper = c3e_matrix_init(n, n);
 
     for(int i = 0; i < n; i++) {
         for(int k = 0; k < n; k++) {
             c3e_number sum = 0.0;
-            for(int j = 0; j < i; j++)
-                sum += MATRIX_ELEM_AT(lower, i, j) *
-                    MATRIX_ELEM_AT(upper, j, k);
 
-            MATRIX_ELEM_AT(upper, i, k) =
-                MATRIX_ELEM_AT(original, i, k) - sum;
+            for(int j = 0; j < i; j++)
+                sum += MATRIX_ELEM(lower, i, j) * MATRIX_ELEM(upper, j, k);
+            MATRIX_ELEM(upper, i, k) = MATRIX_ELEM(orig, i, k) - sum;
         }
 
         for(int k = i + 1; k < n; k++) {
             c3e_number sum = 0.0;
-            for(int j = 0; j < i; j++)
-                sum += MATRIX_ELEM_AT(lower, k, j) *
-                    MATRIX_ELEM_AT(upper, j, i);
 
-            MATRIX_ELEM_AT(lower, k, i) =
-                (MATRIX_ELEM_AT(original, k, i) - sum) /
-                    MATRIX_ELEM_AT(upper, i, i);
+            for(int j = 0; j < i; j++)
+                sum += MATRIX_ELEM(lower, k, j) * MATRIX_ELEM(upper, j, i);
+            MATRIX_ELEM(lower, k, i) = (MATRIX_ELEM(orig, k, i) - sum) / MATRIX_ELEM(upper, i, i);
         }
 
-        MATRIX_ELEM_AT(lower, i, i) = 1.0;
+        MATRIX_ELEM(lower, i, i) = 1.0;
     }
 
     c3e_matrix_tuple tuple;

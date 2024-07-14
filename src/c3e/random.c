@@ -33,13 +33,9 @@ c3e_number c3e_random() {
     }
 
     uint32_t rand_num;
-    ssize_t bytes_read = read(
-        urandom,
-        &rand_num,
-        sizeof(rand_num)
-    );
-    close(urandom);
+    ssize_t bytes_read = read(urandom, &rand_num, sizeof(rand_num));
 
+    close(urandom);
     if(bytes_read != sizeof(rand_num)) {
         srand(time(NULL));
         return c3e_random_pseudo();
@@ -58,11 +54,7 @@ c3e_number c3e_random_pseudo() {
     return (c3e_number) rand();
 }
 
-c3e_number c3e_random_bound(
-    c3e_number min,
-    c3e_number max
-) {
+c3e_number c3e_random_bound(c3e_number min, c3e_number max) {
     assert(min < max);
-    return min + (max - min) *
-        c3e_random();
+    return min + (max - min) * c3e_random();
 }
