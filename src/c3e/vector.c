@@ -216,6 +216,15 @@ c3e_vector* c3e_vector_ones(size_t size) {
     return out;
 }
 
+c3e_vector* c3e_vector_fill(size_t size, c3e_number values) {
+    c3e_vector* out = c3e_vector_init(size);
+
+    for(int i = 0; i < size; i++)
+        out->data[i] = values;
+
+    return out;
+}
+
 c3e_vector* c3e_vector_random(size_t size, int seed) {
     #ifndef __linux__
     if(seed != 0)

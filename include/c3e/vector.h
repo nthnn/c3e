@@ -51,6 +51,7 @@ c3e_vector* c3e_vector_copy(c3e_vector* vector);
 
 c3e_vector* c3e_vector_zeros(size_t size);
 c3e_vector* c3e_vector_ones(size_t size);
+c3e_vector* c3e_vector_fill(size_t size, c3e_number values);
 
 c3e_vector* c3e_vector_random(size_t size, int seed);
 c3e_vector* c3e_vector_random_bound(size_t size, int seed, c3e_number min, c3e_number max);
