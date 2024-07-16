@@ -23,4 +23,7 @@ c3e_tensor* c3e_tensor_fill(size_t dsize, uint32_t dims, int rows, int cols, c3e
 c3e_tensor* c3e_tensor_random(size_t dsize, uint32_t dims, int rows, int cols, int seed);
 c3e_tensor* c3e_tensor_random_bound(size_t dsize, uint32_t dims, int rows, int cols, int seed, c3e_number min, c3e_number max);
 
+bool c3e_tensor_equals(c3e_tensor* tensor, c3e_tensor* subject);
+bool c3e_tensor_all_close(c3e_tensor* tensor, c3e_tensor* subject);
+
 #endif

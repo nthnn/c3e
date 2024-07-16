@@ -336,3 +336,23 @@ c3e_tensor* c3e_tensor_random_bound(size_t dsize, uint32_t dims, int rows, int c
 
     return c3e_tensor_init(dsize, dims, matrices, c3e_vector_random_bound(dsize, seed, min, max));
 }
+
+bool c3e_tensor_equals(c3e_tensor* tensor, c3e_tensor* subject) {
+    bool equals = false;
+
+    for(uint32_t i = 0; i < tensor->dimension_size; i++)
+        equals = equals && c3e_matrix_equals(tensor->matrices[i], subject->matrices[i]);
+
+    equals = equals && c3e_vector_equals(tensor->data, subject->data);
+    return equals;
+}
+
+bool c3e_tensor_all_close(c3e_tensor* tensor, c3e_tensor* subject) {
+    bool all_close = false;
+
+    for(uint32_t i = 0; i < tensor->dimension_size; i++)
+        all_close = all_close && c3e_matrix_all_close(tensor->matrices[i], subject->matrices[i]);
+
+    all_close = all_close && c3e_vector_all_close(tensor->data, subject->data);
+    return all_close;
+}
