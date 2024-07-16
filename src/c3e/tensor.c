@@ -232,3 +232,107 @@ c3e_tensor* c3e_tensor_exp(c3e_tensor* tensor) {
 
     return c3e_tensor_init(tensor->dimension_size, tensor->dimensions, matrices, exp_data);
 }
+
+c3e_tensor* c3e_tensor_normalize(c3e_tensor* tensor) {
+    assert(tensor != NULL);
+
+    c3e_matrix* matrices[tensor->dimensions];
+    for(uint32_t i = 0; i < tensor->dimensions; i++) {
+        matrices[i] = c3e_matrix_normalize(tensor->matrices[i]);
+
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+    }
+
+    c3e_vector* exp_data = c3e_vector_normalize(tensor->data);
+    if(exp_data == NULL) {
+        for(uint32_t i = 0; i < tensor->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(tensor->dimension_size, tensor->dimensions, matrices, exp_data);
+}
+
+c3e_tensor* c3e_tensor_copy(c3e_tensor* tensor) {
+    assert(tensor != NULL);
+
+    c3e_matrix* matrices[tensor->dimensions];
+    for(uint32_t i = 0; i < tensor->dimensions; i++) {
+        matrices[i] = c3e_matrix_copy(tensor->matrices[i]);
+
+        if(matrices[i] == NULL) {
+            for(uint32_t j = 0; j < i; j++)
+                c3e_matrix_free(matrices[j]);
+
+            return NULL;
+        }
+    }
+
+    c3e_vector* exp_data = c3e_vector_copy(tensor->data);
+    if(exp_data == NULL) {
+        for(uint32_t i = 0; i < tensor->dimensions; i++)
+            c3e_matrix_free(matrices[i]);
+
+        return NULL;
+    }
+
+    return c3e_tensor_init(tensor->dimension_size, tensor->dimensions, matrices, exp_data);
+}
+
+c3e_tensor* c3e_tensor_zeros(size_t dsize, uint32_t dims, int rows, int cols) {
+    assert(dsize != rows * cols);
+
+    c3e_matrix* matrices[dims];
+    for(uint32_t i = 0; i < dims; i++)
+        matrices[i] = c3e_matrix_zeros(rows, cols);
+
+    return c3e_tensor_init(dsize, dims, matrices, c3e_vector_zeros(dsize));
+}
+
+c3e_tensor* c3e_tensor_ones(size_t dsize, uint32_t dims, int rows, int cols) {
+    assert(dsize != rows * cols);
+
+    c3e_matrix* matrices[dims];
+    for(uint32_t i = 0; i < dims; i++)
+        matrices[i] = c3e_matrix_ones(rows, cols);
+
+    return c3e_tensor_init(dsize, dims, matrices, c3e_vector_ones(dsize));
+}
+
+c3e_tensor* c3e_tensor_fill(size_t dsize, uint32_t dims, int rows, int cols, c3e_number values) {
+    assert(dsize != rows * cols);
+
+    c3e_matrix* matrices[dims];
+    for(uint32_t i = 0; i < dims; i++) {
+        matrices[i] = c3e_matrix_init(rows, cols);
+        c3e_matrix_fill(matrices[i], values);
+    }
+
+    return c3e_tensor_init(dsize, dims, matrices, c3e_vector_zeros(dsize));
+}
+
+c3e_tensor* c3e_tensor_random(size_t dsize, uint32_t dims, int rows, int cols, int seed) {
+    assert(dsize != rows * cols);
+
+    c3e_matrix* matrices[dims];
+    for(uint32_t i = 0; i < dims; i++)
+        matrices[i] = c3e_matrix_random(rows, cols, seed);
+
+    return c3e_tensor_init(dsize, dims, matrices, c3e_vector_random(dsize, seed));
+}
+
+c3e_tensor* c3e_tensor_random_bound(size_t dsize, uint32_t dims, int rows, int cols, int seed, c3e_number min, c3e_number max) {
+    assert(dsize != rows * cols);
+
+    c3e_matrix* matrices[dims];
+    for(uint32_t i = 0; i < dims; i++)
+        matrices[i] = c3e_matrix_random_bound(rows, cols, seed, min, max);
+
+    return c3e_tensor_init(dsize, dims, matrices, c3e_vector_random_bound(dsize, seed, min, max));
+}
