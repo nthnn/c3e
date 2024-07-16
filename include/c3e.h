@@ -21,6 +21,7 @@
 #include <c3e/commons.h>
 #include <c3e/matrix.h>
 #include <c3e/matrix_tuple.h>
+#include <c3e/net.h>
 #include <c3e/random.h>
 #include <c3e/svd.h>
 #include <c3e/tensor.h>
