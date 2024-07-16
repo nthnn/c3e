@@ -182,7 +182,7 @@ void test_vector() {
     print_vector("Copy of Vector 1", result);
     c3e_vector_free(result);
 
-    printf("V1 and V2 are equal: %s\n", c3e_vector_equal(vector1, vector2) ? "yes" : "no");
+    printf("V1 and V2 are equal: %s\n", c3e_vector_equals(vector1, vector2) ? "yes" : "no");
     printf("V1 and V2 are all close: %s\n", c3e_vector_all_close(vector1, vector2) ? "yes" : "no");
 
     c3e_vector_free(vector1);
