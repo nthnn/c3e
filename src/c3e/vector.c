@@ -260,7 +260,7 @@ c3e_vector* c3e_vector_copy(c3e_vector* vector) {
     return out;
 }
 
-bool c3e_vector_equal(c3e_vector* vector, c3e_vector* subject) {
+bool c3e_vector_equals(c3e_vector* vector, c3e_vector* subject) {
     if(vector->size != subject->size)
         return false;
 

@@ -56,7 +56,7 @@ c3e_vector* c3e_vector_fill(size_t size, c3e_number values);
 c3e_vector* c3e_vector_random(size_t size, int seed);
 c3e_vector* c3e_vector_random_bound(size_t size, int seed, c3e_number min, c3e_number max);
 
-bool c3e_vector_equal(c3e_vector* vector, c3e_vector* subject);
+bool c3e_vector_equals(c3e_vector* vector, c3e_vector* subject);
 bool c3e_vector_all_close(c3e_vector* vector, c3e_vector* subject);
 
 #endif
