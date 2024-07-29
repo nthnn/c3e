@@ -18,10 +18,6 @@
 #ifndef C3E_NET_H
 #define C3E_NET_H
 
-#ifndef __linux__
-#   error "Incompatible target architecture using <c3e/net.h>"
-#endif
-
 #include <arpa/inet.h>
 #include <c3e/commons.h>
 
