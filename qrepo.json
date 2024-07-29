@@ -1,0 +1,10 @@
+{
+	"name": "c3e",
+	"author": "Nathanne Isip",
+	"version": "v1.0.0",
+	"description": "C3E (Complex Compute Core Engine) is a framework, platform, library, and an engine for handling complex computational tasks involving matrices, vectors, and tensors.",
+	"git": "https://github.com/nthnn/c3e.git",
+	"scripts": {
+		"test": ["echo No test specified."]
+	}
+}
