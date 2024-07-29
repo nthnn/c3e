@@ -17,6 +17,8 @@
 
 #include <c3e/net.h>
 #include <assert.h>
+#include <string.h>
+#include <unistd.h>
 
 void c3e_socket_init(c3e_socket* wsocket, const char* hostname, int port) {
     assert(wsocket != NULL);
