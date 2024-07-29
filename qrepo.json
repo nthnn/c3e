@@ -5,6 +5,25 @@
 	"description": "C3E (Complex Compute Core Engine) is a framework, platform, library, and an engine for handling complex computational tasks involving matrices, vectors, and tensors.",
 	"git": "https://github.com/nthnn/c3e.git",
 	"scripts": {
-		"test": ["echo No test specified."]
+		"build-amd64": [
+			"./tools/build.sh amd64 x86_64-linux-gnu"
+		],
+		"build-riscv64": [
+			"sudo apt install gcc-riscv64-linux-gnu",
+			"./tools/build.sh riscv64 riscv64-linux-gnu"
+		],
+		"build-arm": [
+			"sudo apt install gcc-arm-linux-gnueabihf",
+			"./tools/build.sh armhf arm-linux-gnueabihf"
+		],
+		"clean": [
+			"rm -rf dist"
+		],
+		"build": [
+			"qrepo run clean",
+			"qrepo run build-amd64",
+			"qrepo run build-riscv64",
+			"qrepo run build-arm"
+		]
 	}
 }
