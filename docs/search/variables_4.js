@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['left_0',['left',['../structc3e__svd.html#a19354b84a84de7ded4a59031ed22d124',1,'c3e_svd']]]
+  ['hostname_0',['hostname',['../structc3e__socket.html#a692ab20e927c656c7e597a8587f77b1e',1,'c3e_socket']]]
 ];

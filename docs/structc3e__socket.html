@@ -126,23 +126,39 @@ $(document).ready(function(){initNavTree('structc3e__socket.html',''); initResiz
   <div class="headertitle"><div class="title">c3e_socket Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a network socket for communication.  
+ <a href="structc3e__socket.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="net_8h_source.html">net.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a692ab20e927c656c7e597a8587f77b1e" id="r_a692ab20e927c656c7e597a8587f77b1e"><td class="memItemLeft" align="right" valign="top"><a id="a692ab20e927c656c7e597a8587f77b1e" name="a692ab20e927c656c7e597a8587f77b1e"></a>
 char *&#160;</td><td class="memItemRight" valign="bottom"><b>hostname</b></td></tr>
+<tr class="memdesc:a692ab20e927c656c7e597a8587f77b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The hostname or IP address of the server. <br /></td></tr>
 <tr class="separator:a692ab20e927c656c7e597a8587f77b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c698cf3c920430858d6ee99e0a98ef4" id="r_a8c698cf3c920430858d6ee99e0a98ef4"><td class="memItemLeft" align="right" valign="top"><a id="a8c698cf3c920430858d6ee99e0a98ef4" name="a8c698cf3c920430858d6ee99e0a98ef4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>port</b></td></tr>
+<tr class="memdesc:a8c698cf3c920430858d6ee99e0a98ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The port number on which the server is listening. <br /></td></tr>
 <tr class="separator:a8c698cf3c920430858d6ee99e0a98ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad42ef23b6541c5841249aeba203732e9" id="r_ad42ef23b6541c5841249aeba203732e9"><td class="memItemLeft" align="right" valign="top"><a id="ad42ef23b6541c5841249aeba203732e9" name="ad42ef23b6541c5841249aeba203732e9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>sockfd</b></td></tr>
+<tr class="memdesc:ad42ef23b6541c5841249aeba203732e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file descriptor for the socket. <br /></td></tr>
 <tr class="separator:ad42ef23b6541c5841249aeba203732e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1149187478b76d8c35bbbed450915291" id="r_a1149187478b76d8c35bbbed450915291"><td class="memItemLeft" align="right" valign="top"><a id="a1149187478b76d8c35bbbed450915291" name="a1149187478b76d8c35bbbed450915291"></a>
 struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><b>server_addr</b></td></tr>
+<tr class="memdesc:a1149187478b76d8c35bbbed450915291"><td class="mdescLeft">&#160;</td><td class="mdescRight">The server's address structure. <br /></td></tr>
 <tr class="separator:a1149187478b76d8c35bbbed450915291"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This structure encapsulates the details of a network socket, including:</p><ul>
+<li><code>hostname</code>: The hostname or IP address of the server.</li>
+<li><code>port</code>: The port number on which the server is listening.</li>
+<li><code>sockfd</code>: The file descriptor for the socket.</li>
+<li><code>server_addr</code>: The server's address, including the hostname and port number. </li>
+</ul>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/c3e/<a class="el" href="net_8h_source.html">net.h</a></li>
 </ul>
 </div><!-- contents -->
