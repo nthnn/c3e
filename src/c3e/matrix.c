@@ -145,11 +145,6 @@ c3e_matrix* c3e_matrix_identity(int side) {
 }
 
 c3e_matrix* c3e_matrix_random(int rows, int cols, int seed) {
-    #ifndef __linux__
-    if(seed != 0)
-        srand(seed);
-    #endif
-
     int size = rows * cols;
     c3e_matrix* matrix = c3e_matrix_init(rows, cols);
     c3e_number* rand_array = (c3e_number*) malloc(sizeof(c3e_number) * size);
@@ -162,11 +157,6 @@ c3e_matrix* c3e_matrix_random(int rows, int cols, int seed) {
 }
 
 c3e_matrix* c3e_matrix_random_bound(int rows, int cols, int seed, c3e_number min, c3e_number max) {
-    #ifndef __linux__
-    if(seed != 0)
-        srand(seed);
-    #endif
-
     int size = rows * cols;
     c3e_matrix* matrix = c3e_matrix_init(rows, cols);
     c3e_number* rand_array = (c3e_number*) malloc(sizeof(c3e_number) * size);
