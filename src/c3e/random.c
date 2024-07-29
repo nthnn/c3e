@@ -24,7 +24,6 @@
 #include <unistd.h>
 
 c3e_number c3e_random() {
-    #ifdef __linux__
     int urandom = open("/dev/urandom", O_RDONLY);
 
     if(urandom == -1) {
@@ -43,11 +42,6 @@ c3e_number c3e_random() {
 
     srand(rand_num);
     return c3e_random_pseudo();
-
-    #else
-    srand(time(NULL));
-    return c3e_random_pseudo();
-    #endif
 }
 
 c3e_number c3e_random_pseudo() {
