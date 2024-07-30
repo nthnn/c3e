@@ -3,14 +3,13 @@
 ARCHITECTURE=$1
 LIB_DIR=$2
 
-PACKAGE_NAME="c3e"
 VERSION="1.0.0"
 
-PACKAGE_DIR="dist/${PACKAGE_NAME}_${VERSION}_${ARCHITECTURE}"
+PACKAGE_DIR="dist/c3e_${VERSION}_${ARCHITECTURE}"
 DEBIAN_DIR="${PACKAGE_DIR}/DEBIAN"
 
 USR_DIR="${PACKAGE_DIR}/usr"
-INCLUDE_DIR="${USR_DIR}/include/c3e"
+INCLUDE_DIR="${USR_DIR}/include"
 BUILD_DIR="dist/build"
 SO_FILE="${BUILD_DIR}/libc3e.so"
 
@@ -31,7 +30,7 @@ case "$ARCHITECTURE" in
 esac
 
 mkdir -p "${DEBIAN_DIR}"
-mkdir -p "${INCLUDE_DIR}"
+mkdir -p "${INCLUDE_DIR}/c3e"
 mkdir -p "${USR_DIR}/lib/${LIB_DIR}"
 mkdir -p "${BUILD_DIR}"
 
@@ -42,11 +41,12 @@ else
     ${CROSS_COMPILE}gcc -shared -o "${SO_FILE}" -Iinclude src/c3e/*.c
 fi
 
-cp -r include/c3e/* "${INCLUDE_DIR}/"
+cp -r include/c3e.h "${INCLUDE_DIR}/"
+cp -r include/c3e/* "${INCLUDE_DIR}/c3e/"
 cp "${SO_FILE}" "${USR_DIR}/lib/${LIB_DIR}/"
 
 cat <<EOF > "${DEBIAN_DIR}/control"
-Package: ${PACKAGE_NAME}
+Package: c3e
 Version: ${VERSION}
 Section: libs
 Priority: optional
