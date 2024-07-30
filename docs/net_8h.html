@@ -172,6 +172,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a49739f4ab2e36836c84b218a38bd4d7e" id="r_a49739f4ab2e36836c84b218a38bd4d7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="net_8h.html#a49739f4ab2e36836c84b218a38bd4d7e">c3e_socket_send_vector</a> (<a class="el" href="structc3e__socket.html">c3e_socket</a> *socket, <a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
 <tr class="memdesc:a49739f4ab2e36836c84b218a38bd4d7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a vector object through the socket.  <br /></td></tr>
 <tr class="separator:a49739f4ab2e36836c84b218a38bd4d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6835128b578a9e42464e3bca3b9703d0" id="r_a6835128b578a9e42464e3bca3b9703d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="net_8h.html#a6835128b578a9e42464e3bca3b9703d0">c3e_socket_send_number</a> (<a class="el" href="structc3e__socket.html">c3e_socket</a> *socket, <a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> number)</td></tr>
+<tr class="memdesc:a6835128b578a9e42464e3bca3b9703d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a numerical value over a socket connection.  <br /></td></tr>
+<tr class="separator:a6835128b578a9e42464e3bca3b9703d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ff56686e160ad5093af7c076cccdd72" id="r_a0ff56686e160ad5093af7c076cccdd72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__tensor.html">c3e_tensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="net_8h.html#a0ff56686e160ad5093af7c076cccdd72">c3e_socket_tensor_read</a> (<a class="el" href="structc3e__socket.html">c3e_socket</a> *socket)</td></tr>
 <tr class="memdesc:a0ff56686e160ad5093af7c076cccdd72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives and deserializes a tensor object from the socket.  <br /></td></tr>
 <tr class="separator:a0ff56686e160ad5093af7c076cccdd72"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,6 +184,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a09314e56168da4508d41e4df76e0cc32" id="r_a09314e56168da4508d41e4df76e0cc32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="net_8h.html#a09314e56168da4508d41e4df76e0cc32">c3e_socket_vector_read</a> (<a class="el" href="structc3e__socket.html">c3e_socket</a> *socket)</td></tr>
 <tr class="memdesc:a09314e56168da4508d41e4df76e0cc32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives and deserializes a vector object from the socket.  <br /></td></tr>
 <tr class="separator:a09314e56168da4508d41e4df76e0cc32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f08b98b661deb5e199b412c1804329d" id="r_a8f08b98b661deb5e199b412c1804329d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="net_8h.html#a8f08b98b661deb5e199b412c1804329d">c3e_socket_number_read</a> (<a class="el" href="structc3e__socket.html">c3e_socket</a> *socket)</td></tr>
+<tr class="memdesc:a8f08b98b661deb5e199b412c1804329d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a numerical value from a socket connection.  <br /></td></tr>
+<tr class="separator:a8f08b98b661deb5e199b412c1804329d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd><a href="https://github.com/nthnn">Nathanne Isip</a> </dd></dl>
@@ -277,6 +283,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the deserialized <code><a class="el" href="structc3e__matrix.html" title="Represents a mathematical matrix.">c3e_matrix</a></code> object. NULL if the operation fails. </dd></dl>
+
+</div>
+</div>
+<a id="a8f08b98b661deb5e199b412c1804329d" name="a8f08b98b661deb5e199b412c1804329d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f08b98b661deb5e199b412c1804329d">&#9670;&#160;</a></span>c3e_socket_number_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> c3e_socket_number_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__socket.html">c3e_socket</a> *&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function reads a <code>c3e_number</code> type value from the specified socket.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>A pointer to a <code><a class="el" href="structc3e__socket.html" title="Represents a network socket for communication.">c3e_socket</a></code> structure representing the socket connection from which the data will be received. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The numerical value of type <code>c3e_number</code> that was received from the socket. </dd></dl>
 
 </div>
 </div>
@@ -398,6 +430,42 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">socket</td><td>A pointer to the <code><a class="el" href="structc3e__socket.html" title="Represents a network socket for communication.">c3e_socket</a></code> structure used for sending the matrix. </td></tr>
     <tr><td class="paramname">matrix</td><td>A pointer to the <code><a class="el" href="structc3e__matrix.html" title="Represents a mathematical matrix.">c3e_matrix</a></code> object to be sent. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6835128b578a9e42464e3bca3b9703d0" name="a6835128b578a9e42464e3bca3b9703d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6835128b578a9e42464e3bca3b9703d0">&#9670;&#160;</a></span>c3e_socket_send_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void c3e_socket_send_number </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__socket.html">c3e_socket</a> *&#160;</td>
+          <td class="paramname"><em>socket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a>&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function sends a <code>c3e_number</code> type value through the specified socket. It uses the <code>c3e_socket_send_data</code> function to transmit the binary representation of the number.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>A pointer to a <code><a class="el" href="structc3e__socket.html" title="Represents a network socket for communication.">c3e_socket</a></code> structure representing the socket connection through which the data will be sent. </td></tr>
+    <tr><td class="paramname">number</td><td>The numerical value of type <code>c3e_number</code> to be sent. This value is sent as a binary stream, which means the receiving end should be aware of the data format to correctly interpret it. </td></tr>
   </table>
   </dd>
 </dl>
