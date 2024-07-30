@@ -27,8 +27,9 @@
 #ifndef C3E_NET_H
 #define C3E_NET_H
 
-#include <arpa/inet.h>
 #include <c3e/commons.h>
+
+#include <arpa/inet.h>
 
 /**
  * @struct c3e_socket
