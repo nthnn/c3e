@@ -15,15 +15,14 @@
  *    and/or other materials provided with the distribution.
  */
 
+#include <c3e/assert.h>
 #include <c3e/matrix.h>
 #include <c3e/matrix_tuple.h>
 #include <c3e/vector.h>
 
-#include <assert.h>
-
 c3e_matrix_tuple c3e_matrix_qr_decomp(c3e_matrix* matrix) {
-    assert(matrix->rows == matrix->cols);
-    assert(c3e_matrix_determinant(matrix) != 0.0);
+    c3e_assert(matrix->rows == matrix->cols);
+    c3e_assert(c3e_matrix_determinant(matrix) != 0.0);
 
     c3e_matrix* original = c3e_matrix_copy(matrix);
     c3e_matrix* orthogonal = c3e_matrix_zeros(matrix->rows, matrix->cols);
@@ -53,7 +52,7 @@ c3e_matrix_tuple c3e_matrix_qr_decomp(c3e_matrix* matrix) {
 }
 
 c3e_matrix_tuple c3e_matrix_lu_decomp(c3e_matrix* orig) {
-    assert(orig->rows == orig->cols);
+    c3e_assert(orig->rows == orig->cols);
 
     int n = orig->rows;
     c3e_matrix* lower = c3e_matrix_init(n, n);

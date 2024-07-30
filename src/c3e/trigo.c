@@ -15,9 +15,9 @@
  *    and/or other materials provided with the distribution.
  */
 
+#include <c3e/assert.h>
 #include <c3e/trigo.h>
 
-#include <assert.h>
 #include <float.h>
 #include <math.h>
 
@@ -59,7 +59,7 @@ c3e_number c3e_radian_degrees(c3e_number x) {
 }
 
 c3e_number c3e_gamma(c3e_number x) {
-    assert(x > 0.0);
+    c3e_assert(x > 0.0);
 
     if(x < 0.001)
         return 1.0 / (x * (1.0 + 0.577215664901532860606512090 * x));
@@ -98,7 +98,7 @@ c3e_number c3e_gamma(c3e_number x) {
 }
 
 c3e_number c3e_log_gamma(c3e_number x) {
-    assert(x > 0.0);
+    c3e_assert(x > 0.0);
 
     if(x < 12.0)
         return log(fabs(c3e_gamma(x)));

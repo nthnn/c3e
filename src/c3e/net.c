@@ -15,26 +15,27 @@
  *    and/or other materials provided with the distribution.
  */
 
+#include <c3e/assert.h>
 #include <c3e/net.h>
-#include <assert.h>
+
 #include <string.h>
 #include <unistd.h>
 
 void c3e_socket_init(c3e_socket* wsocket, const char* hostname, int port) {
-    assert(wsocket != NULL);
-    assert(hostname != NULL);
+    c3e_assert(wsocket != NULL);
+    c3e_assert(hostname != NULL);
 
     wsocket->hostname = strdup(hostname);
     wsocket->port = port;
     wsocket->sockfd = socket(AF_INET, SOCK_STREAM, 0);
 
-    assert(wsocket->sockfd >= 0);
+    c3e_assert(wsocket->sockfd >= 0);
 
     wsocket->server_addr.sin_family = AF_INET;
     wsocket->server_addr.sin_port = htons(port);
 
-    assert(inet_pton(AF_INET, hostname, &wsocket->server_addr.sin_addr) > 0);
-    assert(connect(wsocket->sockfd, (struct sockaddr*) &wsocket->server_addr, sizeof(wsocket->server_addr)) >= 0);
+    c3e_assert(inet_pton(AF_INET, hostname, &wsocket->server_addr.sin_addr) > 0);
+    c3e_assert(connect(wsocket->sockfd, (struct sockaddr*) &wsocket->server_addr, sizeof(wsocket->server_addr)) >= 0);
 }
 
 void c3e_socket_close(c3e_socket* socket) {
@@ -45,21 +46,21 @@ void c3e_socket_close(c3e_socket* socket) {
 }
 
 bool c3e_socket_send_data(c3e_socket* socket, const void* data, size_t size) {
-    assert(socket != NULL);
-    assert(data != NULL);
+    c3e_assert(socket != NULL);
+    c3e_assert(data != NULL);
     
     return send(socket->sockfd, data, size, 0) == size;
 }
 
 bool c3e_socket_receive_data(c3e_socket* socket, void* buffer, size_t size) {
-    assert(socket != NULL);
-    assert(buffer != NULL);
+    c3e_assert(socket != NULL);
+    c3e_assert(buffer != NULL);
 
     return recv(socket->sockfd, buffer, size, 0) == size;
 }
 
 void c3e_socket_send_tensor(c3e_socket* socket, c3e_tensor* tensor) {
-    assert(tensor != NULL);
+    c3e_assert(tensor != NULL);
 
     c3e_socket_send_data(socket, &tensor->dimensions, sizeof(tensor->dimensions));
     c3e_socket_send_data(socket, &tensor->dimension_size, sizeof(tensor->dimension_size));
@@ -70,7 +71,7 @@ void c3e_socket_send_tensor(c3e_socket* socket, c3e_tensor* tensor) {
 }
 
 void c3e_socket_send_matrix(c3e_socket* socket, c3e_matrix* matrix) {
-    assert(matrix != NULL);
+    c3e_assert(matrix != NULL);
 
     c3e_socket_send_data(socket, &matrix->rows, sizeof(matrix->rows));
     c3e_socket_send_data(socket, &matrix->cols, sizeof(matrix->cols));
@@ -78,7 +79,7 @@ void c3e_socket_send_matrix(c3e_socket* socket, c3e_matrix* matrix) {
 }
 
 void c3e_socket_send_vector(c3e_socket* socket, c3e_vector* vector) {
-    assert(vector != NULL);
+    c3e_assert(vector != NULL);
 
     c3e_socket_send_data(socket, &vector->size, sizeof(vector->size));
     c3e_socket_send_data(socket, vector->data, vector->size * sizeof(c3e_number));

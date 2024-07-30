@@ -1,17 +1,35 @@
+/*
+ * Copyright 2024 Nathanne Isip
+ * 
+ * Redistribution and use in source and binary forms,
+ * with or without modification, are permitted provided
+ * that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the
+ *    above copyright notice, this list of conditions
+ *    and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the
+ *    above copyright notice, this list of conditions
+ *    and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ */
+
+#include <c3e/assert.h>
 #include <c3e/matrix.h>
 #include <c3e/tensor.h>
 #include <c3e/vector.h>
-#include <assert.h>
+
 #include <stdlib.h>
 
 c3e_tensor* c3e_tensor_init(size_t dsize, uint32_t dims, c3e_matrix** matrices, c3e_vector* data) {
-    assert(dsize);
-    assert(dims != 0);
+    c3e_assert(dsize);
+    c3e_assert(dims != 0);
 
-    assert(matrices != NULL);
+    c3e_assert(matrices != NULL);
 
-    assert(data != NULL);
-    assert(data->size == dsize);
+    c3e_assert(data != NULL);
+    c3e_assert(data->size == dsize);
 
     c3e_tensor* tensor = (c3e_tensor*) malloc(sizeof(c3e_tensor));
     if(tensor == NULL)
@@ -45,7 +63,7 @@ c3e_tensor* c3e_tensor_init(size_t dsize, uint32_t dims, c3e_matrix** matrices, 
 }
 
 void c3e_tensor_free(c3e_tensor* tensor) {
-    assert(tensor != NULL);
+    c3e_assert(tensor != NULL);
 
     if(tensor->matrices != NULL) {
         for(uint32_t i = 0; i < tensor->dimensions; i++)
@@ -61,11 +79,11 @@ void c3e_tensor_free(c3e_tensor* tensor) {
 }
 
 c3e_tensor* c3e_tensor_add(c3e_tensor* left, c3e_tensor* right) {
-    assert(left != NULL);
-    assert(right != NULL);
+    c3e_assert(left != NULL);
+    c3e_assert(right != NULL);
     
-    assert(left->dimensions == right->dimensions);
-    assert(left->dimension_size == right->dimension_size);
+    c3e_assert(left->dimensions == right->dimensions);
+    c3e_assert(left->dimension_size == right->dimension_size);
 
     c3e_matrix* matrices[left->dimensions];
     for(uint32_t i = 0; i < left->dimensions; i++) {
@@ -91,11 +109,11 @@ c3e_tensor* c3e_tensor_add(c3e_tensor* left, c3e_tensor* right) {
 }
 
 c3e_tensor* c3e_tensor_sub(c3e_tensor* left, c3e_tensor* right) {
-    assert(left != NULL);
-    assert(right != NULL);
+    c3e_assert(left != NULL);
+    c3e_assert(right != NULL);
 
-    assert(left->dimensions == right->dimensions);
-    assert(left->dimension_size == right->dimension_size);
+    c3e_assert(left->dimensions == right->dimensions);
+    c3e_assert(left->dimension_size == right->dimension_size);
 
     c3e_matrix* matrices[left->dimensions];
     for(uint32_t i = 0; i < left->dimensions; i++) {
@@ -121,11 +139,11 @@ c3e_tensor* c3e_tensor_sub(c3e_tensor* left, c3e_tensor* right) {
 }
 
 c3e_tensor* c3e_tensor_mul(c3e_tensor* left, c3e_tensor* right) {
-    assert(left != NULL);
-    assert(right != NULL);
+    c3e_assert(left != NULL);
+    c3e_assert(right != NULL);
 
-    assert(left->dimensions == right->dimensions);
-    assert(left->dimension_size == right->dimension_size);
+    c3e_assert(left->dimensions == right->dimensions);
+    c3e_assert(left->dimension_size == right->dimension_size);
 
     c3e_matrix* matrices[left->dimensions];
     for(uint32_t i = 0; i < left->dimensions; i++) {
@@ -151,11 +169,11 @@ c3e_tensor* c3e_tensor_mul(c3e_tensor* left, c3e_tensor* right) {
 }
 
 c3e_tensor* c3e_tensor_div(c3e_tensor* left, c3e_tensor* right) {
-    assert(left != NULL);
-    assert(right != NULL);
+    c3e_assert(left != NULL);
+    c3e_assert(right != NULL);
 
-    assert(left->dimensions == right->dimensions);
-    assert(left->dimension_size == right->dimension_size);
+    c3e_assert(left->dimensions == right->dimensions);
+    c3e_assert(left->dimension_size == right->dimension_size);
 
     c3e_matrix* matrices[left->dimensions];
     for(uint32_t i = 0; i < left->dimensions; i++) {
@@ -181,8 +199,8 @@ c3e_tensor* c3e_tensor_div(c3e_tensor* left, c3e_tensor* right) {
 }
 
 c3e_tensor* c3e_tensor_scale(c3e_tensor* tensor, int x) {
-    assert(tensor != NULL);
-    assert(x != 0);
+    c3e_assert(tensor != NULL);
+    c3e_assert(x != 0);
 
     c3e_matrix* matrices[tensor->dimensions];
     for(uint32_t i = 0; i < tensor->dimensions; i++) {
@@ -208,7 +226,7 @@ c3e_tensor* c3e_tensor_scale(c3e_tensor* tensor, int x) {
 }
 
 c3e_tensor* c3e_tensor_exp(c3e_tensor* tensor) {
-    assert(tensor != NULL);
+    c3e_assert(tensor != NULL);
 
     c3e_matrix* matrices[tensor->dimensions];
     for(uint32_t i = 0; i < tensor->dimensions; i++) {
@@ -234,7 +252,7 @@ c3e_tensor* c3e_tensor_exp(c3e_tensor* tensor) {
 }
 
 c3e_tensor* c3e_tensor_normalize(c3e_tensor* tensor) {
-    assert(tensor != NULL);
+    c3e_assert(tensor != NULL);
 
     c3e_matrix* matrices[tensor->dimensions];
     for(uint32_t i = 0; i < tensor->dimensions; i++) {
@@ -260,7 +278,7 @@ c3e_tensor* c3e_tensor_normalize(c3e_tensor* tensor) {
 }
 
 c3e_tensor* c3e_tensor_copy(c3e_tensor* tensor) {
-    assert(tensor != NULL);
+    c3e_assert(tensor != NULL);
 
     c3e_matrix* matrices[tensor->dimensions];
     for(uint32_t i = 0; i < tensor->dimensions; i++) {
@@ -286,7 +304,7 @@ c3e_tensor* c3e_tensor_copy(c3e_tensor* tensor) {
 }
 
 c3e_tensor* c3e_tensor_zeros(size_t dsize, uint32_t dims, int rows, int cols) {
-    assert(dsize != rows * cols);
+    c3e_assert(dsize != rows * cols);
 
     c3e_matrix* matrices[dims];
     for(uint32_t i = 0; i < dims; i++)
@@ -296,7 +314,7 @@ c3e_tensor* c3e_tensor_zeros(size_t dsize, uint32_t dims, int rows, int cols) {
 }
 
 c3e_tensor* c3e_tensor_ones(size_t dsize, uint32_t dims, int rows, int cols) {
-    assert(dsize != rows * cols);
+    c3e_assert(dsize != rows * cols);
 
     c3e_matrix* matrices[dims];
     for(uint32_t i = 0; i < dims; i++)
@@ -306,7 +324,7 @@ c3e_tensor* c3e_tensor_ones(size_t dsize, uint32_t dims, int rows, int cols) {
 }
 
 c3e_tensor* c3e_tensor_fill(size_t dsize, uint32_t dims, int rows, int cols, c3e_number values) {
-    assert(dsize != rows * cols);
+    c3e_assert(dsize != rows * cols);
 
     c3e_matrix* matrices[dims];
     for(uint32_t i = 0; i < dims; i++) {
@@ -318,7 +336,7 @@ c3e_tensor* c3e_tensor_fill(size_t dsize, uint32_t dims, int rows, int cols, c3e
 }
 
 c3e_tensor* c3e_tensor_random(size_t dsize, uint32_t dims, int rows, int cols, int seed) {
-    assert(dsize != rows * cols);
+    c3e_assert(dsize != rows * cols);
 
     c3e_matrix* matrices[dims];
     for(uint32_t i = 0; i < dims; i++)
@@ -328,7 +346,7 @@ c3e_tensor* c3e_tensor_random(size_t dsize, uint32_t dims, int rows, int cols, i
 }
 
 c3e_tensor* c3e_tensor_random_bound(size_t dsize, uint32_t dims, int rows, int cols, int seed, c3e_number min, c3e_number max) {
-    assert(dsize != rows * cols);
+    c3e_assert(dsize != rows * cols);
 
     c3e_matrix* matrices[dims];
     for(uint32_t i = 0; i < dims; i++)
