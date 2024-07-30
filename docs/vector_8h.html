@@ -133,11 +133,28 @@ $(document).ready(function(){initNavTree('vector_8h.html',''); initResizable(); 
 Include dependency graph for vector.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="vector_8h__incl.png" border="0" usemap="#ainclude_2c3e_2vector_8h" alt=""/></div>
+<map name="ainclude_2c3e_2vector_8h" id="ainclude_2c3e_2vector_8h">
+<area shape="rect" title="Vector operations and utilities for the C3E library." alt="" coords="120,5,272,31"/>
+<area shape="rect" href="commons_8h.html" title="Common data structures and type definitions for the C3E library." alt="" coords="84,79,209,104"/>
+<area shape="poly" title=" " alt="" coords="190,33,165,69,160,66,186,29"/>
+<area shape="rect" title=" " alt="" coords="210,152,281,177"/>
+<area shape="poly" title=" " alt="" coords="204,30,224,78,242,138,237,139,219,80,199,32"/>
+<area shape="rect" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" title=" " alt="" coords="132,106,76,146,73,142,129,102"/>
+<area shape="rect" title=" " alt="" coords="113,152,183,177"/>
+<area shape="poly" title=" " alt="" coords="150,104,150,138,145,139,144,104"/>
+<area shape="poly" title=" " alt="" coords="164,102,220,142,217,146,161,106"/>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="vector_8h__dep__incl.png" border="0" usemap="#ainclude_2c3e_2vector_8hdep" alt=""/></div>
+<map name="ainclude_2c3e_2vector_8hdep" id="ainclude_2c3e_2vector_8hdep">
+<area shape="rect" title="Vector operations and utilities for the C3E library." alt="" coords="5,5,157,31"/>
+<area shape="rect" href="c3e_8h.html" title="Main header file for the Complex Compute Core Engine (C3E)." alt="" coords="27,79,135,104"/>
+<area shape="poly" title=" " alt="" coords="84,44,84,79,79,79,79,44"/>
+</map>
 </div>
 </div>
 <p><a href="vector_8h_source.html">Go to the source code of this file.</a></p>
@@ -147,6 +164,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a18a55663f1c032dee913cfb87a7fa634" id="r_a18a55663f1c032dee913cfb87a7fa634"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a18a55663f1c032dee913cfb87a7fa634">c3e_vector_init</a> (size_t size)</td></tr>
 <tr class="memdesc:a18a55663f1c032dee913cfb87a7fa634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a vector with a specified size.  <br /></td></tr>
 <tr class="separator:a18a55663f1c032dee913cfb87a7fa634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6b9d32523194265fe9a0df54d8f21b" id="r_a5c6b9d32523194265fe9a0df54d8f21b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a5c6b9d32523194265fe9a0df54d8f21b">c3e_vector_create</a> (size_t size, <a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> *data)</td></tr>
+<tr class="memdesc:a5c6b9d32523194265fe9a0df54d8f21b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new <code><a class="el" href="structc3e__vector.html" title="Represents a mathematical vector.">c3e_vector</a></code> instance with the specified size and data.  <br /></td></tr>
+<tr class="separator:a5c6b9d32523194265fe9a0df54d8f21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70b98df52da87af782b8b670238726bb" id="r_a70b98df52da87af782b8b670238726bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a70b98df52da87af782b8b670238726bb">c3e_vector_free</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
 <tr class="memdesc:a70b98df52da87af782b8b670238726bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees the memory allocated for a vector.  <br /></td></tr>
 <tr class="separator:a70b98df52da87af782b8b670238726bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,11 +251,97 @@ Functions</h2></td></tr>
 <tr class="memitem:a6406644438271462d5b99067e3225f94" id="r_a6406644438271462d5b99067e3225f94"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a6406644438271462d5b99067e3225f94">c3e_vector_all_close</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector, <a class="el" href="structc3e__vector.html">c3e_vector</a> *subject)</td></tr>
 <tr class="memdesc:a6406644438271462d5b99067e3225f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all elements of one vector are close to another vector's elements within a tolerance.  <br /></td></tr>
 <tr class="separator:a6406644438271462d5b99067e3225f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964a4959e357dd294a563b94cda37887" id="r_a964a4959e357dd294a563b94cda37887"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a964a4959e357dd294a563b94cda37887">c3e_vector_arc_sin</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a964a4959e357dd294a563b94cda37887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the arc sine of each element in the vector.  <br /></td></tr>
+<tr class="separator:a964a4959e357dd294a563b94cda37887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a5efc34ddc9cfca89425226223bfd73" id="r_a2a5efc34ddc9cfca89425226223bfd73"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a2a5efc34ddc9cfca89425226223bfd73">c3e_vector_arc_sinh</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a2a5efc34ddc9cfca89425226223bfd73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the arc hyperbolic sine of each element in the vector.  <br /></td></tr>
+<tr class="separator:a2a5efc34ddc9cfca89425226223bfd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f8f6949060f1171a0d2a5868ab86f6" id="r_a35f8f6949060f1171a0d2a5868ab86f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a35f8f6949060f1171a0d2a5868ab86f6">c3e_vector_sin</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a35f8f6949060f1171a0d2a5868ab86f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sine of each element in the vector.  <br /></td></tr>
+<tr class="separator:a35f8f6949060f1171a0d2a5868ab86f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac50553e98eb7de00193d4e1094a3a5eb" id="r_ac50553e98eb7de00193d4e1094a3a5eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ac50553e98eb7de00193d4e1094a3a5eb">c3e_vector_sinh</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:ac50553e98eb7de00193d4e1094a3a5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the hyperbolic sine of each element in the vector.  <br /></td></tr>
+<tr class="separator:ac50553e98eb7de00193d4e1094a3a5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c50fb08c644fa61db24635ce28e56c" id="r_a58c50fb08c644fa61db24635ce28e56c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a58c50fb08c644fa61db24635ce28e56c">c3e_vector_arc_cos</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a58c50fb08c644fa61db24635ce28e56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the arc cosine of each element in the vector.  <br /></td></tr>
+<tr class="separator:a58c50fb08c644fa61db24635ce28e56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acac4ce03c88a5363e411bc6b803f4798" id="r_acac4ce03c88a5363e411bc6b803f4798"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#acac4ce03c88a5363e411bc6b803f4798">c3e_vector_arc_cosh</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:acac4ce03c88a5363e411bc6b803f4798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the arc hyperbolic cosine of each element in the vector.  <br /></td></tr>
+<tr class="separator:acac4ce03c88a5363e411bc6b803f4798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebc4433fdc37d5e1b9c144ba53daac6" id="r_a8ebc4433fdc37d5e1b9c144ba53daac6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a8ebc4433fdc37d5e1b9c144ba53daac6">c3e_vector_cos</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a8ebc4433fdc37d5e1b9c144ba53daac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the cosine of each element in the vector.  <br /></td></tr>
+<tr class="separator:a8ebc4433fdc37d5e1b9c144ba53daac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeae99e22446e11cb3a21b720dfb67681" id="r_aeae99e22446e11cb3a21b720dfb67681"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aeae99e22446e11cb3a21b720dfb67681">c3e_vector_cosh</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:aeae99e22446e11cb3a21b720dfb67681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the hyperbolic cosine of each element in the vector.  <br /></td></tr>
+<tr class="separator:aeae99e22446e11cb3a21b720dfb67681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abda809e8ab86479ac18d52f5c9912a48" id="r_abda809e8ab86479ac18d52f5c9912a48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#abda809e8ab86479ac18d52f5c9912a48">c3e_vector_arc_tan</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:abda809e8ab86479ac18d52f5c9912a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the arc tangent of each element in the vector.  <br /></td></tr>
+<tr class="separator:abda809e8ab86479ac18d52f5c9912a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae53854d5a41c0a6e6eed74c352a48a86" id="r_ae53854d5a41c0a6e6eed74c352a48a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ae53854d5a41c0a6e6eed74c352a48a86">c3e_vector_arc_tanh</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:ae53854d5a41c0a6e6eed74c352a48a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the arc hyperbolic tangent of each element in the vector.  <br /></td></tr>
+<tr class="separator:ae53854d5a41c0a6e6eed74c352a48a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6831e22966fe8c4ceef6ced2763fbd5" id="r_ad6831e22966fe8c4ceef6ced2763fbd5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#ad6831e22966fe8c4ceef6ced2763fbd5">c3e_vector_tan</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:ad6831e22966fe8c4ceef6ced2763fbd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the tangent of each element in the vector.  <br /></td></tr>
+<tr class="separator:ad6831e22966fe8c4ceef6ced2763fbd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9783d44c32c74d4db26e147f0689381d" id="r_a9783d44c32c74d4db26e147f0689381d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a9783d44c32c74d4db26e147f0689381d">c3e_vector_tanh</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a9783d44c32c74d4db26e147f0689381d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the hyperbolic tangent of each element in the vector.  <br /></td></tr>
+<tr class="separator:a9783d44c32c74d4db26e147f0689381d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba66c47971040bf735798109e30cd9be" id="r_aba66c47971040bf735798109e30cd9be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aba66c47971040bf735798109e30cd9be">c3e_vector_abs</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:aba66c47971040bf735798109e30cd9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the absolute value of each element in the vector.  <br /></td></tr>
+<tr class="separator:aba66c47971040bf735798109e30cd9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b0886c22149e33da014fc80e622f676" id="r_a3b0886c22149e33da014fc80e622f676"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a3b0886c22149e33da014fc80e622f676">c3e_vector_log</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a3b0886c22149e33da014fc80e622f676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the natural logarithm of each element in the vector.  <br /></td></tr>
+<tr class="separator:a3b0886c22149e33da014fc80e622f676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55a609a36ae70913135f2d0227af416" id="r_af55a609a36ae70913135f2d0227af416"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#af55a609a36ae70913135f2d0227af416">c3e_vector_log10</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:af55a609a36ae70913135f2d0227af416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the base-10 logarithm of each element in the vector.  <br /></td></tr>
+<tr class="separator:af55a609a36ae70913135f2d0227af416"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a927385db60338a14cd60f8ba155f10a1" id="r_a927385db60338a14cd60f8ba155f10a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a927385db60338a14cd60f8ba155f10a1">c3e_vector_log2</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a927385db60338a14cd60f8ba155f10a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the base-2 logarithm of each element in the vector.  <br /></td></tr>
+<tr class="separator:a927385db60338a14cd60f8ba155f10a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5534aef0ae6347465310eeebef7ce97a" id="r_a5534aef0ae6347465310eeebef7ce97a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a5534aef0ae6347465310eeebef7ce97a">c3e_vector_log1p</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a5534aef0ae6347465310eeebef7ce97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the natural logarithm of (1 + each element in the vector).  <br /></td></tr>
+<tr class="separator:a5534aef0ae6347465310eeebef7ce97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff27bdb9621bce79fd869d554b56eee" id="r_acff27bdb9621bce79fd869d554b56eee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#acff27bdb9621bce79fd869d554b56eee">c3e_vector_pow</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector, <a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> exp)</td></tr>
+<tr class="memdesc:acff27bdb9621bce79fd869d554b56eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes each element of the vector raised to the given power.  <br /></td></tr>
+<tr class="separator:acff27bdb9621bce79fd869d554b56eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7de75711defef50421f213fa894c9f" id="r_aaa7de75711defef50421f213fa894c9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#aaa7de75711defef50421f213fa894c9f">c3e_vector_rsqrt</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:aaa7de75711defef50421f213fa894c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the reciprocal square root of each element in the vector.  <br /></td></tr>
+<tr class="separator:aaa7de75711defef50421f213fa894c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81ec29d2f7437600b44519d0d050f9fd" id="r_a81ec29d2f7437600b44519d0d050f9fd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8h.html#a81ec29d2f7437600b44519d0d050f9fd">c3e_vector_sqrt</a> (<a class="el" href="structc3e__vector.html">c3e_vector</a> *vector)</td></tr>
+<tr class="memdesc:a81ec29d2f7437600b44519d0d050f9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the square root of each element in the vector.  <br /></td></tr>
+<tr class="separator:a81ec29d2f7437600b44519d0d050f9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd><a href="https://github.com/nthnn">Nathanne Isip</a> </dd></dl>
 <p>This file provides functions for creating and manipulating vectors. Operations include initialization, modification, arithmetic operations, and various vector-specific calculations. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aba66c47971040bf735798109e30cd9be" name="aba66c47971040bf735798109e30cd9be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba66c47971040bf735798109e30cd9be">&#9670;&#160;</a></span>c3e_vector_abs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_abs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the absolute value function to each element of the input vector. The resulting vector contains the absolute values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the absolute value function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the absolute values of the input vector elements. </dd></dl>
+
+</div>
+</div>
 <a id="a355e256ed45f55035bac53c9a709b60e" name="a355e256ed45f55035bac53c9a709b60e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a355e256ed45f55035bac53c9a709b60e">&#9670;&#160;</a></span>c3e_vector_add()</h2>
 
@@ -345,6 +451,162 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a58c50fb08c644fa61db24635ce28e56c" name="a58c50fb08c644fa61db24635ce28e56c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c50fb08c644fa61db24635ce28e56c">&#9670;&#160;</a></span>c3e_vector_arc_cos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_arc_cos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the arc cosine function (inverse of cosine) to each element of the input vector. The resulting vector contains the arc cosine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the arc cosine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the arc cosine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="acac4ce03c88a5363e411bc6b803f4798" name="acac4ce03c88a5363e411bc6b803f4798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac4ce03c88a5363e411bc6b803f4798">&#9670;&#160;</a></span>c3e_vector_arc_cosh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_arc_cosh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the arc hyperbolic cosine function (inverse of hyperbolic cosine) to each element of the input vector. The resulting vector contains the arc hyperbolic cosine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the arc hyperbolic cosine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the arc hyperbolic cosine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a964a4959e357dd294a563b94cda37887" name="a964a4959e357dd294a563b94cda37887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a964a4959e357dd294a563b94cda37887">&#9670;&#160;</a></span>c3e_vector_arc_sin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_arc_sin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the arc sine function (inverse of sine) to each element of the input vector. The resulting vector contains the arc sine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the arc sine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the arc sine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a2a5efc34ddc9cfca89425226223bfd73" name="a2a5efc34ddc9cfca89425226223bfd73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5efc34ddc9cfca89425226223bfd73">&#9670;&#160;</a></span>c3e_vector_arc_sinh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_arc_sinh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the arc hyperbolic sine function (inverse of hyperbolic sine) to each element of the input vector. The resulting vector contains the arc hyperbolic sine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the arc hyperbolic sine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the arc hyperbolic sine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="abda809e8ab86479ac18d52f5c9912a48" name="abda809e8ab86479ac18d52f5c9912a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abda809e8ab86479ac18d52f5c9912a48">&#9670;&#160;</a></span>c3e_vector_arc_tan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_arc_tan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the arc tangent function (inverse of tangent) to each element of the input vector. The resulting vector contains the arc tangent values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the arc tangent function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the arc tangent values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="ae53854d5a41c0a6e6eed74c352a48a86" name="ae53854d5a41c0a6e6eed74c352a48a86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae53854d5a41c0a6e6eed74c352a48a86">&#9670;&#160;</a></span>c3e_vector_arc_tanh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_arc_tanh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the arc hyperbolic tangent function (inverse of hyperbolic tangent) to each element of the input vector. The resulting vector contains the arc hyperbolic tangent values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the arc hyperbolic tangent function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the arc hyperbolic tangent values of the input vector elements. </dd></dl>
+
+</div>
+</div>
 <a id="aa205a09e040b665ca6797766197c1479" name="aa205a09e040b665ca6797766197c1479"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa205a09e040b665ca6797766197c1479">&#9670;&#160;</a></span>c3e_vector_copy()</h2>
 
@@ -367,6 +629,95 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created copy of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a8ebc4433fdc37d5e1b9c144ba53daac6" name="a8ebc4433fdc37d5e1b9c144ba53daac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ebc4433fdc37d5e1b9c144ba53daac6">&#9670;&#160;</a></span>c3e_vector_cos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_cos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the cosine function to each element of the input vector. The resulting vector contains the cosine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the cosine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the cosine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="aeae99e22446e11cb3a21b720dfb67681" name="aeae99e22446e11cb3a21b720dfb67681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeae99e22446e11cb3a21b720dfb67681">&#9670;&#160;</a></span>c3e_vector_cosh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_cosh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the hyperbolic cosine function to each element of the input vector. The resulting vector contains the hyperbolic cosine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the hyperbolic cosine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the hyperbolic cosine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a5c6b9d32523194265fe9a0df54d8f21b" name="a5c6b9d32523194265fe9a0df54d8f21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6b9d32523194265fe9a0df54d8f21b">&#9670;&#160;</a></span>c3e_vector_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_create </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function allocates memory for a new <code><a class="el" href="structc3e__vector.html" title="Represents a mathematical vector.">c3e_vector</a></code> and initializes it with the provided size and data. The <code>data</code> array should contain <code>size</code> elements that are copied into the newly created vector's data array.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The number of elements in the vector. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to an array of <code>c3e_number</code> containing the initial values for the vector. The data is copied into the new vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the newly created <code><a class="el" href="structc3e__vector.html" title="Represents a mathematical vector.">c3e_vector</a></code> structure, or <code>NULL</code> if memory allocation fails. </dd></dl>
 
 </div>
 </div>
@@ -751,6 +1102,110 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a3b0886c22149e33da014fc80e622f676" name="a3b0886c22149e33da014fc80e622f676"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b0886c22149e33da014fc80e622f676">&#9670;&#160;</a></span>c3e_vector_log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_log </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the natural logarithm function to each element of the input vector. The resulting vector contains the natural logarithm values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the natural logarithm function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the natural logarithm values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="af55a609a36ae70913135f2d0227af416" name="af55a609a36ae70913135f2d0227af416"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af55a609a36ae70913135f2d0227af416">&#9670;&#160;</a></span>c3e_vector_log10()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_log10 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the base-10 logarithm function to each element of the input vector. The resulting vector contains the base-10 logarithm values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the base-10 logarithm function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the base-10 logarithm values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a5534aef0ae6347465310eeebef7ce97a" name="a5534aef0ae6347465310eeebef7ce97a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5534aef0ae6347465310eeebef7ce97a">&#9670;&#160;</a></span>c3e_vector_log1p()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_log1p </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the natural logarithm function to (1 + each element) of the input vector. The resulting vector contains the natural logarithm values of the modified elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the natural logarithm of (1 + element) function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the natural logarithm values of the modified input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a927385db60338a14cd60f8ba155f10a1" name="a927385db60338a14cd60f8ba155f10a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a927385db60338a14cd60f8ba155f10a1">&#9670;&#160;</a></span>c3e_vector_log2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_log2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the base-2 logarithm function to each element of the input vector. The resulting vector contains the base-2 logarithm values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the base-2 logarithm function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the base-2 logarithm values of the input vector elements. </dd></dl>
+
+</div>
+</div>
 <a id="a580e5dd35a27120d5f3fa01b8796eee1" name="a580e5dd35a27120d5f3fa01b8796eee1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a580e5dd35a27120d5f3fa01b8796eee1">&#9670;&#160;</a></span>c3e_vector_mul()</h2>
 
@@ -859,6 +1314,43 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created vector with all elements set to one. </dd></dl>
+
+</div>
+</div>
+<a id="acff27bdb9621bce79fd869d554b56eee" name="acff27bdb9621bce79fd869d554b56eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff27bdb9621bce79fd869d554b56eee">&#9670;&#160;</a></span>c3e_vector_pow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_pow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a>&#160;</td>
+          <td class="paramname"><em>exp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the power function to each element of the input vector, raising each element to the specified exponent.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the power function will be applied. </td></tr>
+    <tr><td class="paramname">exp</td><td>The exponent to which each element of the vector will be raised. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the results of raising each element to the given power. </dd></dl>
 
 </div>
 </div>
@@ -984,6 +1476,32 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aaa7de75711defef50421f213fa894c9f" name="aaa7de75711defef50421f213fa894c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa7de75711defef50421f213fa894c9f">&#9670;&#160;</a></span>c3e_vector_rsqrt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_rsqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the reciprocal square root function (1 / sqrt(x)) to each element of the input vector. The resulting vector contains the reciprocal square root values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the reciprocal square root function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the reciprocal square root values of the input vector elements. </dd></dl>
+
+</div>
+</div>
 <a id="a40ca249cef3627c9b17f1d3eb50e03df" name="a40ca249cef3627c9b17f1d3eb50e03df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40ca249cef3627c9b17f1d3eb50e03df">&#9670;&#160;</a></span>c3e_vector_scale()</h2>
 
@@ -1097,6 +1615,84 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a35f8f6949060f1171a0d2a5868ab86f6" name="a35f8f6949060f1171a0d2a5868ab86f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f8f6949060f1171a0d2a5868ab86f6">&#9670;&#160;</a></span>c3e_vector_sin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_sin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the sine function to each element of the input vector. The resulting vector contains the sine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the sine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the sine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="ac50553e98eb7de00193d4e1094a3a5eb" name="ac50553e98eb7de00193d4e1094a3a5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50553e98eb7de00193d4e1094a3a5eb">&#9670;&#160;</a></span>c3e_vector_sinh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_sinh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the hyperbolic sine function to each element of the input vector. The resulting vector contains the hyperbolic sine values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the hyperbolic sine function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the hyperbolic sine values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a81ec29d2f7437600b44519d0d050f9fd" name="a81ec29d2f7437600b44519d0d050f9fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81ec29d2f7437600b44519d0d050f9fd">&#9670;&#160;</a></span>c3e_vector_sqrt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_sqrt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the square root function to each element of the input vector. The resulting vector contains the square root values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the square root function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the square root values of the input vector elements. </dd></dl>
+
+</div>
+</div>
 <a id="a9576f438f2ef1174b5d69342baf50b66" name="a9576f438f2ef1174b5d69342baf50b66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9576f438f2ef1174b5d69342baf50b66">&#9670;&#160;</a></span>c3e_vector_sub()</h2>
 
@@ -1155,6 +1751,58 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The sum of all elements in the vector. </dd></dl>
+
+</div>
+</div>
+<a id="ad6831e22966fe8c4ceef6ced2763fbd5" name="ad6831e22966fe8c4ceef6ced2763fbd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6831e22966fe8c4ceef6ced2763fbd5">&#9670;&#160;</a></span>c3e_vector_tan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_tan </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the tangent function to each element of the input vector. The resulting vector contains the tangent values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the tangent function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the tangent values of the input vector elements. </dd></dl>
+
+</div>
+</div>
+<a id="a9783d44c32c74d4db26e147f0689381d" name="a9783d44c32c74d4db26e147f0689381d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9783d44c32c74d4db26e147f0689381d">&#9670;&#160;</a></span>c3e_vector_tanh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_vector_tanh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function applies the hyperbolic tangent function to each element of the input vector. The resulting vector contains the hyperbolic tangent values of the original elements.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Pointer to the input vector on which the hyperbolic tangent function will be applied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new vector containing the hyperbolic tangent values of the input vector elements. </dd></dl>
 
 </div>
 </div>

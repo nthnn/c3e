@@ -1,0 +1,41 @@
+<map id="include/c3e.h" name="include/c3e.h">
+<area shape="rect" id="Node000001" title="Main header file for the Complex Compute Core Engine (C3E)." alt="" coords="497,5,605,31"/>
+<area shape="rect" id="Node000002" href="$assert_8h.html" title="Header file for custom assertion handling functions." alt="" coords="182,152,283,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="497,24,372,30,221,41,87,58,42,69,19,81,9,97,12,111,25,123,46,133,105,148,169,157,168,162,104,153,44,138,22,128,7,114,4,97,15,77,40,64,86,53,220,36,372,25,497,19"/>
+<area shape="rect" id="Node000004" href="$commons_8h.html" title="Common data structures and type definitions for the C3E library." alt="" coords="549,152,674,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="601,28,639,46,657,60,671,77,676,96,670,114,657,131,642,145,638,141,653,127,665,112,670,96,666,80,653,64,637,51,599,33"/>
+<area shape="rect" id="Node000007" href="$matrix_8h.html" title="Matrix operations for the Complex Compute Core Engine (C3E) framework." alt="" coords="731,79,835,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="589,28,734,72,732,77,588,33"/>
+<area shape="rect" id="Node000008" href="$matrix__tuple_8h.html" title="Defines functions and structures for matrix tuple operations in C3E." alt="" coords="29,79,173,104"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="497,30,187,79,186,74,497,25"/>
+<area shape="rect" id="Node000009" href="$net_8h.html" title="Network communication utilities for the C3E library." alt="" coords="985,79,1067,104"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="606,23,766,44,971,76,970,81,765,49,605,28"/>
+<area shape="rect" id="Node000011" href="$random_8h.html" title="Random number generation utilities for the C3E library." alt="" coords="197,79,308,104"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="504,33,315,78,314,73,503,28"/>
+<area shape="rect" id="Node000012" href="$svd_8h.html" title="Functions for Singular Value Decomposition (SVD) in the C3E library." alt="" coords="332,79,416,104"/>
+<area shape="poly" id="edge16_Node000001_Node000012" title=" " alt="" coords="524,33,416,76,415,71,522,28"/>
+<area shape="rect" id="Node000013" href="$tensor_8h.html" title="Functions for tensor operations in the C3E library." alt="" coords="441,79,542,104"/>
+<area shape="poly" id="edge18_Node000001_Node000013" title=" " alt="" coords="544,33,512,70,508,66,539,29"/>
+<area shape="rect" id="Node000014" href="$trigo_8h.html" title="Trigonometric and special functions for the C3E library." alt="" coords="566,79,657,104"/>
+<area shape="poly" id="edge20_Node000001_Node000014" title=" " alt="" coords="563,29,595,66,591,70,559,33"/>
+<area shape="rect" id="Node000015" href="$vector_8h.html" title="Vector operations and utilities for the C3E library." alt="" coords="859,79,961,104"/>
+<area shape="poly" id="edge22_Node000001_Node000015" title=" " alt="" coords="606,27,846,75,845,80,605,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="330,225,413,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,175,338,217,335,221,254,180"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="574,180,424,224,423,219,572,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="576,225,647,251"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="614,178,614,212,609,212,609,178"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="723,225,793,251"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="636,175,723,217,721,222,634,180"/>
+<area shape="poly" id="edge8_Node000007_Node000004" title=" " alt="" coords="757,106,653,149,651,144,755,102"/>
+<area shape="poly" id="edge10_Node000008_Node000004" title=" " alt="" coords="173,100,536,150,535,155,172,105"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="985,104,973,107,688,155,687,149,972,101,984,99"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="980,152,1072,177"/>
+<area shape="poly" id="edge13_Node000009_Node000010" title=" " alt="" coords="1029,104,1029,138,1023,138,1023,104"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="309,101,541,147,540,152,308,106"/>
+<area shape="poly" id="edge17_Node000012_Node000004" title=" " alt="" coords="413,101,561,145,559,151,411,107"/>
+<area shape="poly" id="edge19_Node000013_Node000004" title=" " alt="" coords="512,102,581,142,578,147,509,106"/>
+<area shape="poly" id="edge21_Node000014_Node000004" title=" " alt="" coords="614,104,614,138,609,138,609,104"/>
+<area shape="poly" id="edge23_Node000015_Node000004" title=" " alt="" coords="863,107,674,151,672,146,861,101"/>
+<area shape="poly" id="edge24_Node000015_Node000006" title=" " alt="" coords="899,106,782,218,778,214,896,103"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="include/c3e/vector.h" name="include/c3e/vector.h">
+<area shape="rect" id="Node000001" title="Vector operations and utilities for the C3E library." alt="" coords="120,5,272,31"/>
+<area shape="rect" id="Node000002" href="$commons_8h.html" title="Common data structures and type definitions for the C3E library." alt="" coords="84,79,209,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,33,165,69,160,66,186,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="210,152,281,177"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="204,30,224,78,242,138,237,139,219,80,199,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="132,106,76,146,73,142,129,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="113,152,183,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="150,104,150,138,145,139,144,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="164,102,220,142,217,146,161,106"/>
+</map>

@@ -133,11 +133,27 @@ $(document).ready(function(){initNavTree('matrix_8h.html',''); initResizable(); 
 Include dependency graph for matrix.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="matrix_8h__incl.png" border="0" usemap="#ainclude_2c3e_2matrix_8h" alt=""/></div>
+<map name="ainclude_2c3e_2matrix_8h" id="ainclude_2c3e_2matrix_8h">
+<area shape="rect" title="Matrix operations for the Complex Compute Core Engine (C3E) framework." alt="" coords="71,5,225,31"/>
+<area shape="rect" href="commons_8h.html" title="Common data structures and type definitions for the C3E library." alt="" coords="85,79,211,104"/>
+<area shape="poly" title=" " alt="" coords="151,31,151,65,145,65,145,31"/>
+<area shape="rect" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" title=" " alt="" coords="133,106,76,146,73,142,130,102"/>
+<area shape="rect" title=" " alt="" coords="113,152,183,177"/>
+<area shape="poly" title=" " alt="" coords="151,104,151,138,145,138,145,104"/>
+<area shape="rect" title=" " alt="" coords="207,152,278,177"/>
+<area shape="poly" title=" " alt="" coords="165,102,218,141,215,146,162,106"/>
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="matrix_8h__dep__incl.png" border="0" usemap="#ainclude_2c3e_2matrix_8hdep" alt=""/></div>
+<map name="ainclude_2c3e_2matrix_8hdep" id="ainclude_2c3e_2matrix_8hdep">
+<area shape="rect" title="Matrix operations for the Complex Compute Core Engine (C3E) framework." alt="" coords="5,5,160,31"/>
+<area shape="rect" href="c3e_8h.html" title="Main header file for the Complex Compute Core Engine (C3E)." alt="" coords="29,79,137,104"/>
+<area shape="poly" title=" " alt="" coords="85,44,85,79,80,79,80,44"/>
+</map>
 </div>
 </div>
 <p><a href="matrix_8h_source.html">Go to the source code of this file.</a></p>
@@ -252,6 +268,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6bdc3350e97f173cea227a6115af6f1d" id="r_a6bdc3350e97f173cea227a6115af6f1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8h.html#a6bdc3350e97f173cea227a6115af6f1d">c3e_matrix_infinity_norm</a> (<a class="el" href="structc3e__matrix.html">c3e_matrix</a> *matrix)</td></tr>
 <tr class="memdesc:a6bdc3350e97f173cea227a6115af6f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the infinity norm of a matrix.  <br /></td></tr>
 <tr class="separator:a6bdc3350e97f173cea227a6115af6f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92ca1fc236f7aa4d37634468453f60a1" id="r_a92ca1fc236f7aa4d37634468453f60a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__vector.html">c3e_vector</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8h.html#a92ca1fc236f7aa4d37634468453f60a1">c3e_matrix_get_row</a> (<a class="el" href="structc3e__matrix.html">c3e_matrix</a> *matrix, int row)</td></tr>
+<tr class="memdesc:a92ca1fc236f7aa4d37634468453f60a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a row from the given matrix and returns it as a <a class="el" href="structc3e__vector.html" title="Represents a mathematical vector.">c3e_vector</a>.  <br /></td></tr>
+<tr class="separator:a92ca1fc236f7aa4d37634468453f60a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6f99ce5b3823acdda397d2ea2468668" id="r_aa6f99ce5b3823acdda397d2ea2468668"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8h.html#aa6f99ce5b3823acdda397d2ea2468668">c3e_matrix_add_row</a> (<a class="el" href="structc3e__matrix.html">c3e_matrix</a> *matrix, int row1, int row2, <a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> scalar)</td></tr>
 <tr class="memdesc:aa6f99ce5b3823acdda397d2ea2468668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a scaled row to another row in a matrix.  <br /></td></tr>
 <tr class="separator:aa6f99ce5b3823acdda397d2ea2468668"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -399,9 +418,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a0f211ae817b422c74a585754efd27ec0" id="r_a0f211ae817b422c74a585754efd27ec0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__matrix.html">c3e_matrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8h.html#a0f211ae817b422c74a585754efd27ec0">c3e_matrix_abs</a> (<a class="el" href="structc3e__matrix.html">c3e_matrix</a> *matrix)</td></tr>
 <tr class="memdesc:a0f211ae817b422c74a585754efd27ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the absolute value of each element in the matrix.  <br /></td></tr>
 <tr class="separator:a0f211ae817b422c74a585754efd27ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5ce024340cd94fab33975050d6af8ba" id="r_aa5ce024340cd94fab33975050d6af8ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__matrix.html">c3e_matrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8h.html#aa5ce024340cd94fab33975050d6af8ba">c3e_matrix_fabs</a> (<a class="el" href="structc3e__matrix.html">c3e_matrix</a> *matrix)</td></tr>
-<tr class="memdesc:aa5ce024340cd94fab33975050d6af8ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the floating-point absolute value of each element in the matrix.  <br /></td></tr>
-<tr class="separator:aa5ce024340cd94fab33975050d6af8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e78ecc3bb438f7c6a8db8a97479d023" id="r_a4e78ecc3bb438f7c6a8db8a97479d023"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structc3e__matrix.html">c3e_matrix</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_8h.html#a4e78ecc3bb438f7c6a8db8a97479d023">c3e_matrix_a_range</a> (<a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> start, <a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> end, <a class="el" href="commons_8h.html#a970488798f34199acf7545f256bde297">c3e_number</a> step)</td></tr>
 <tr class="memdesc:a4e78ecc3bb438f7c6a8db8a97479d023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix with values within a specified range.  <br /></td></tr>
 <tr class="separator:a4e78ecc3bb438f7c6a8db8a97479d023"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1693,32 +1709,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa5ce024340cd94fab33975050d6af8ba" name="aa5ce024340cd94fab33975050d6af8ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5ce024340cd94fab33975050d6af8ba">&#9670;&#160;</a></span>c3e_matrix_fabs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structc3e__matrix.html">c3e_matrix</a> * c3e_matrix_fabs </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structc3e__matrix.html">c3e_matrix</a> *&#160;</td>
-          <td class="paramname"><em>matrix</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function is similar to c3e_matrix_abs but ensures compatibility with floating-point data types.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">matrix</td><td>Pointer to the matrix. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the resulting matrix with the absolute values, or NULL on failure. </dd></dl>
-
-</div>
-</div>
 <a id="a673e018e9e5abdf1425abb44dae6e192" name="a673e018e9e5abdf1425abb44dae6e192"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a673e018e9e5abdf1425abb44dae6e192">&#9670;&#160;</a></span>c3e_matrix_fill()</h2>
 
@@ -2059,6 +2049,43 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value at the specified position. </dd></dl>
+
+</div>
+</div>
+<a id="a92ca1fc236f7aa4d37634468453f60a1" name="a92ca1fc236f7aa4d37634468453f60a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92ca1fc236f7aa4d37634468453f60a1">&#9670;&#160;</a></span>c3e_matrix_get_row()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structc3e__vector.html">c3e_vector</a> * c3e_matrix_get_row </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structc3e__matrix.html">c3e_matrix</a> *&#160;</td>
+          <td class="paramname"><em>matrix</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function creates a new vector that contains the elements of the specified row from the given matrix. The row index is zero-based, so the first row is index 0.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>Pointer to the <a class="el" href="structc3e__matrix.html" title="Represents a mathematical matrix.">c3e_matrix</a> from which to extract the row. </td></tr>
+    <tr><td class="paramname">row</td><td>The zero-based index of the row to extract. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to a new <a class="el" href="structc3e__vector.html" title="Represents a mathematical vector.">c3e_vector</a> containing the elements of the specified row, or NULL if the row index is out of bounds. </dd></dl>
 
 </div>
 </div>
