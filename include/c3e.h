@@ -33,6 +33,7 @@
 #   error "Incompatible target architecture using C3E."
 #endif
 
+#include <c3e/assert.h>
 #include <c3e/commons.h>
 #include <c3e/matrix.h>
 #include <c3e/matrix_tuple.h>
