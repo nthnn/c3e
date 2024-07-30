@@ -415,6 +415,18 @@ c3e_number c3e_matrix_l1_norm(c3e_matrix* matrix);
 c3e_number c3e_matrix_infinity_norm(c3e_matrix* matrix);
 
 /**
+ * @brief Extracts a row from the given matrix and returns it as a c3e_vector.
+ *
+ * This function creates a new vector that contains the elements of the specified row
+ * from the given matrix. The row index is zero-based, so the first row is index 0.
+ *
+ * @param matrix Pointer to the c3e_matrix from which to extract the row.
+ * @param row The zero-based index of the row to extract.
+ * @return Pointer to a new c3e_vector containing the elements of the specified row, or NULL if the row index is out of bounds.
+ */
+c3e_vector* c3e_matrix_get_row(c3e_matrix* matrix, int row);
+
+/**
  * @brief Adds a scaled row to another row in a matrix.
  *
  * Adds a scalar multiple of one row to another row within the matrix.
@@ -876,16 +888,6 @@ c3e_matrix* c3e_matrix_tanh(c3e_matrix* matrix);
  * @return Pointer to the resulting matrix with the absolute values, or NULL on failure.
  */
 c3e_matrix* c3e_matrix_abs(c3e_matrix* matrix);
-
-/**
- * @brief Computes the floating-point absolute value of each element in the matrix.
- *
- * This function is similar to c3e_matrix_abs but ensures compatibility with floating-point data types.
- *
- * @param matrix Pointer to the matrix.
- * @return Pointer to the resulting matrix with the absolute values, or NULL on failure.
- */
-c3e_matrix* c3e_matrix_fabs(c3e_matrix* matrix);
 
 /**
  * @brief Creates a matrix with values within a specified range.
