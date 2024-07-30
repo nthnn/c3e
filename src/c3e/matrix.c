@@ -15,6 +15,7 @@
  *    and/or other materials provided with the distribution.
  */
 
+#include <c3e/assert.h>
 #include <c3e/matrix.h>
 #include <c3e/matrix_tuple.h>
 #include <c3e/random.h>
@@ -22,7 +23,6 @@
 #include <c3e/trigo.h>
 #include <c3e/vector.h>
 
-#include <assert.h>
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
@@ -177,7 +177,7 @@ c3e_matrix* c3e_matrix_copy(c3e_matrix* matrix) {
 
 c3e_matrix* c3e_matrix_append(c3e_matrix* matrix, c3e_matrix* subject, int axis) {
     if(axis == 0) {
-        assert(matrix->rows == subject->rows);
+        c3e_assert(matrix->rows == subject->rows);
 
         c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols + subject->cols);
         for(int i = 0; i < matrix->rows; i++)
@@ -191,7 +191,7 @@ c3e_matrix* c3e_matrix_append(c3e_matrix* matrix, c3e_matrix* subject, int axis)
         return out;
     }
     else if(axis == 1) {
-        assert(matrix->cols == subject->cols);
+        c3e_assert(matrix->cols == subject->cols);
 
         c3e_matrix* out = c3e_matrix_init(matrix->rows + subject->rows, matrix->cols);
         for(int i = 0; i < matrix->rows; i++)
@@ -212,8 +212,8 @@ c3e_matrix* c3e_matrix_add(c3e_matrix* matrix, c3e_matrix* subject) {
     int rows = (matrix->rows > subject->rows) ? matrix->rows : subject->rows;
     int cols = (matrix->cols > subject->cols) ? matrix->cols : subject->cols;
 
-    assert(matrix->rows == subject->rows || matrix->rows == 1 || subject->rows == 1);
-    assert(matrix->cols == subject->cols || matrix->cols == 1 || subject->cols == 1);
+    c3e_assert(matrix->rows == subject->rows || matrix->rows == 1 || subject->rows == 1);
+    c3e_assert(matrix->cols == subject->cols || matrix->cols == 1 || subject->cols == 1);
 
     c3e_matrix* out = c3e_matrix_init(rows, cols);
     for(int i = 0; i < matrix->rows; i++)
@@ -229,8 +229,8 @@ c3e_matrix* c3e_matrix_sub(c3e_matrix* matrix, c3e_matrix* subject) {
     int rows = (matrix->rows > subject->rows) ? matrix->rows : subject->rows;
     int cols = (matrix->cols > subject->cols) ? matrix->cols : subject->cols;
 
-    assert(matrix->rows == subject->rows || matrix->rows == 1 || subject->rows == 1);
-    assert(matrix->cols == subject->cols || matrix->cols == 1 || subject->cols == 1);
+    c3e_assert(matrix->rows == subject->rows || matrix->rows == 1 || subject->rows == 1);
+    c3e_assert(matrix->cols == subject->cols || matrix->cols == 1 || subject->cols == 1);
 
     c3e_matrix* out = c3e_matrix_init(rows, cols);
     for(int i = 0; i < matrix->rows; i++)
@@ -243,7 +243,7 @@ c3e_matrix* c3e_matrix_sub(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_mul(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->cols == subject->rows);
+    c3e_assert(matrix->cols == subject->rows);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, subject->cols);
     for(int i = 0; i < matrix->rows; i++)
@@ -259,7 +259,7 @@ c3e_matrix* c3e_matrix_mul(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_div(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->cols == subject->rows);
+    c3e_assert(matrix->cols == subject->rows);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, subject->cols);
     for(int i = 0; i < matrix->rows; i++)
@@ -275,7 +275,7 @@ c3e_matrix* c3e_matrix_div(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_dot(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->rows == subject->rows && matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows && matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_copy(matrix);
     for(int i = 0; i < out->rows; i++)
@@ -304,7 +304,7 @@ c3e_matrix* c3e_matrix_transpose(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_slice(c3e_matrix* matrix, int frows, int trows, int fcols, int tcols) {
-    assert(frows >= 0 && fcols >= 0 && trows <= matrix->rows && tcols <= matrix->cols);
+    c3e_assert(frows >= 0 && fcols >= 0 && trows <= matrix->rows && tcols <= matrix->cols);
 
     c3e_matrix* out = c3e_matrix_init(trows - frows, tcols - fcols);
     for(int i = frows, x = 0; (i < trows && x < out->rows); i++, x++)
@@ -330,7 +330,7 @@ void c3e_matrix_col_div(c3e_matrix* matrix, int col, c3e_number scalar) {
 }
 
 c3e_number c3e_matrix_trace(c3e_matrix* matrix) {
-    assert(matrix->rows == matrix->cols);
+    c3e_assert(matrix->rows == matrix->cols);
 
     c3e_number out = 0.0;
     for(int i = 0; i < (matrix->rows * matrix->cols);) {
@@ -342,7 +342,7 @@ c3e_number c3e_matrix_trace(c3e_matrix* matrix) {
 }
 
 c3e_number c3e_matrix_determinant(c3e_matrix* matrix) {
-    assert(matrix->rows == matrix->cols);
+    c3e_assert(matrix->rows == matrix->cols);
 
     c3e_number out = 0.0;
     int n = matrix->rows;
@@ -420,6 +420,20 @@ c3e_number c3e_matrix_infinity_norm(c3e_matrix* matrix) {
     return out; 
 }
 
+c3e_vector* c3e_matrix_get_row(c3e_matrix* matrix, int row) {
+    c3e_assert(matrix != NULL);
+    c3e_assert(row >= 0 && row < matrix->rows);
+
+    c3e_vector* vector = c3e_vector_init(matrix->cols);
+    if(vector == NULL)
+        return NULL;
+
+    vector->size = matrix->cols;
+    memcpy(vector->data, matrix->data + (row * matrix->cols), matrix->cols * sizeof(c3e_number));
+
+    return vector;
+}
+
 void c3e_matrix_add_row(c3e_matrix* matrix, int row1, int row2, c3e_number scalar) {
     for(int j = 0; j < matrix->cols; j++)
         MATRIX_ELEM(matrix, row1, j) += scalar * MATRIX_ELEM(matrix, row2, j);
@@ -484,8 +498,8 @@ c3e_matrix* c3e_matrix_row_echelon(c3e_matrix* matrix) {
 
 
 c3e_matrix* c3e_matrix_inverse(c3e_matrix* matrix) {
-    assert(matrix->rows == matrix->cols);
-    assert(c3e_matrix_determinant(matrix) != 0.0);
+    c3e_assert(matrix->rows == matrix->cols);
+    c3e_assert(c3e_matrix_determinant(matrix) != 0.0);
 
     int n = matrix->rows;
 
@@ -521,7 +535,7 @@ c3e_matrix* c3e_matrix_qr_algo(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_cholesky_decomp(c3e_matrix* matrix) {
-    assert(c3e_matrix_all_close(matrix, c3e_matrix_transpose(matrix)));
+    c3e_assert(c3e_matrix_all_close(matrix, c3e_matrix_transpose(matrix)));
 
     c3e_matrix* lower = c3e_matrix_zeros(matrix->rows, matrix->cols);
     for(int i = 0; i < matrix->rows; i++) {
@@ -585,7 +599,7 @@ int c3e_matrix_find_pivot(c3e_matrix* matrix, int col, int row) {
 }
 
 c3e_matrix* c3e_matrix_tril(c3e_matrix* matrix, int diag) {
-    assert(matrix->rows == matrix->cols);
+    c3e_assert(matrix->rows == matrix->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -598,7 +612,7 @@ c3e_matrix* c3e_matrix_tril(c3e_matrix* matrix, int diag) {
 }
 
 c3e_matrix* c3e_matrix_triu(c3e_matrix* matrix, int diag) {
-    assert(matrix->rows == matrix->cols);
+    c3e_assert(matrix->rows == matrix->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -611,8 +625,8 @@ c3e_matrix* c3e_matrix_triu(c3e_matrix* matrix, int diag) {
 }
 
 c3e_vector* c3e_matrix_diagonal(c3e_matrix* matrix, int k) {
-    assert(matrix->rows == matrix->cols);
-    assert(abs(k) < matrix->rows);
+    c3e_assert(matrix->rows == matrix->cols);
+    c3e_assert(abs(k) < matrix->rows);
 
     c3e_vector* out = c3e_vector_init(matrix->rows - abs(k));
     if(k >= 0)
@@ -914,7 +928,7 @@ c3e_vector* c3e_matrix_eigenvalues(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_vec_mul(c3e_matrix* matrix, c3e_vector* vector) {
-    assert(matrix->cols == vector->size);
+    c3e_assert(matrix->cols == vector->size);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -975,7 +989,7 @@ c3e_matrix* c3e_matrix_flatten(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_reshape(c3e_matrix* matrix, int rows, int cols) {
-    assert(matrix->rows * matrix->cols == rows * cols);
+    c3e_assert(matrix->rows * matrix->cols == rows * cols);
 
     c3e_matrix* out = c3e_matrix_init(rows, cols);
     for(int i = 0; i < rows; i++)
@@ -1130,16 +1144,6 @@ c3e_matrix* c3e_matrix_abs(c3e_matrix* matrix) {
     return out;
 }
 
-c3e_matrix* c3e_matrix_fabs(c3e_matrix* matrix) {
-    c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
-
-    for(int i = 0; i < matrix->rows; i++)
-        for(int j = 0; j < matrix->cols; j++)
-            MATRIX_ELEM(out, i, j) = fabs(MATRIX_ELEM(out, i, j));
-
-    return out;
-}
-
 c3e_matrix* c3e_matrix_a_range(c3e_number start, c3e_number end, c3e_number step) {
     int size = ceil((end - start) / step);
     c3e_matrix* out = c3e_matrix_init(1, size);
@@ -1271,8 +1275,8 @@ c3e_matrix* c3e_matrix_sqrt(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_lerp(c3e_matrix* matrix, c3e_matrix* subject, c3e_number weight) {
-    assert(matrix->rows == subject->rows);
-    assert(matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows);
+    c3e_assert(matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
 
@@ -1310,8 +1314,8 @@ c3e_matrix* c3e_matrix_sign(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_equals(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->rows == subject->rows);
-    assert(matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows);
+    c3e_assert(matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -1323,8 +1327,8 @@ c3e_matrix* c3e_matrix_equals(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_less_than(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->rows == subject->rows);
-    assert(matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows);
+    c3e_assert(matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -1336,8 +1340,8 @@ c3e_matrix* c3e_matrix_less_than(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_less_than_eq(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->rows == subject->rows);
-    assert(matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows);
+    c3e_assert(matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -1349,8 +1353,8 @@ c3e_matrix* c3e_matrix_less_than_eq(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_greater_than(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->rows == subject->rows);
-    assert(matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows);
+    c3e_assert(matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -1362,8 +1366,8 @@ c3e_matrix* c3e_matrix_greater_than(c3e_matrix* matrix, c3e_matrix* subject) {
 }
 
 c3e_matrix* c3e_matrix_greater_than_eq(c3e_matrix* matrix, c3e_matrix* subject) {
-    assert(matrix->rows == subject->rows);
-    assert(matrix->cols == subject->cols);
+    c3e_assert(matrix->rows == subject->rows);
+    c3e_assert(matrix->cols == subject->cols);
 
     c3e_matrix* out = c3e_matrix_init(matrix->rows, matrix->cols);
     for(int i = 0; i < out->rows; i++)
@@ -1474,7 +1478,7 @@ c3e_matrix* c3e_matrix_arg_sort(c3e_matrix* matrix) {
 }
 
 c3e_matrix* c3e_matrix_arg_min_vals(c3e_matrix* matrix, int dim) {
-    assert(dim >= 0 && dim < 2);
+    c3e_assert(dim >= 0 && dim < 2);
 
     if(dim == 0) {
         c3e_matrix* out = c3e_matrix_init(matrix->rows, 1);
@@ -1505,7 +1509,7 @@ c3e_matrix* c3e_matrix_arg_min_vals(c3e_matrix* matrix, int dim) {
 }
 
 c3e_matrix* c3e_matrix_arg_max_vals(c3e_matrix* matrix, int dim) {
-    assert(dim >= 0 && dim < 2);
+    c3e_assert(dim >= 0 && dim < 2);
 
     if(dim == 0) {
         c3e_matrix* out = c3e_matrix_init(matrix->rows, 1);
