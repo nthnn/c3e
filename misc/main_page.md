@@ -2,6 +2,7 @@
 @tableofcontents
 
 ![Test CI](https://github.com/nthnn/c3e/actions/workflows/test_ci.yml/badge.svg)
+![Package Build CI](https://github.com/nthnn/c3e/actions/workflows/build_ci.yml/badge.svg)
 
 <div align="center">
     <img src="c3e-logo.png" alt="C3E Logo" width="128" />
