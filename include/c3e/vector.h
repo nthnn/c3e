@@ -27,6 +27,7 @@
 #define C3E_VECTOR_H
 
 #include <c3e/commons.h>
+
 #include <stdlib.h>
 
 /**
@@ -38,6 +39,21 @@
  * @return A pointer to the newly initialized vector.
  */
 c3e_vector* c3e_vector_init(size_t size);
+
+/**
+ * @brief Creates a new `c3e_vector` instance with the specified size and data.
+ *
+ * This function allocates memory for a new `c3e_vector` and initializes it with
+ * the provided size and data. The `data` array should contain `size` elements
+ * that are copied into the newly created vector's data array.
+ *
+ * @param size The number of elements in the vector.
+ * @param data Pointer to an array of `c3e_number` containing the initial values
+ *             for the vector. The data is copied into the new vector.
+ * @return Pointer to the newly created `c3e_vector` structure, or `NULL` if memory
+ *         allocation fails.
+ */
+c3e_vector* c3e_vector_create(size_t size, c3e_number* data);
 
 /**
  * @brief Frees the memory allocated for a vector.
@@ -294,5 +310,226 @@ bool c3e_vector_equals(c3e_vector* vector, c3e_vector* subject);
  * @return True if all elements are within tolerance, false otherwise.
  */
 bool c3e_vector_all_close(c3e_vector* vector, c3e_vector* subject);
+
+/**
+ * @brief Computes the arc sine of each element in the vector.
+ * 
+ * This function applies the arc sine function (inverse of sine) to each element of the input vector.
+ * The resulting vector contains the arc sine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the arc sine function will be applied.
+ * @return Pointer to a new vector containing the arc sine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_arc_sin(c3e_vector* vector);
+
+/**
+ * @brief Computes the arc hyperbolic sine of each element in the vector.
+ * 
+ * This function applies the arc hyperbolic sine function (inverse of hyperbolic sine) to each element of the input vector.
+ * The resulting vector contains the arc hyperbolic sine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the arc hyperbolic sine function will be applied.
+ * @return Pointer to a new vector containing the arc hyperbolic sine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_arc_sinh(c3e_vector* vector);
+
+/**
+ * @brief Computes the sine of each element in the vector.
+ * 
+ * This function applies the sine function to each element of the input vector.
+ * The resulting vector contains the sine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the sine function will be applied.
+ * @return Pointer to a new vector containing the sine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_sin(c3e_vector* vector);
+
+/**
+ * @brief Computes the hyperbolic sine of each element in the vector.
+ * 
+ * This function applies the hyperbolic sine function to each element of the input vector.
+ * The resulting vector contains the hyperbolic sine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the hyperbolic sine function will be applied.
+ * @return Pointer to a new vector containing the hyperbolic sine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_sinh(c3e_vector* vector);
+
+/**
+ * @brief Computes the arc cosine of each element in the vector.
+ * 
+ * This function applies the arc cosine function (inverse of cosine) to each element of the input vector.
+ * The resulting vector contains the arc cosine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the arc cosine function will be applied.
+ * @return Pointer to a new vector containing the arc cosine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_arc_cos(c3e_vector* vector);
+
+/**
+ * @brief Computes the arc hyperbolic cosine of each element in the vector.
+ * 
+ * This function applies the arc hyperbolic cosine function (inverse of hyperbolic cosine) to each element of the input vector.
+ * The resulting vector contains the arc hyperbolic cosine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the arc hyperbolic cosine function will be applied.
+ * @return Pointer to a new vector containing the arc hyperbolic cosine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_arc_cosh(c3e_vector* vector);
+
+/**
+ * @brief Computes the cosine of each element in the vector.
+ * 
+ * This function applies the cosine function to each element of the input vector.
+ * The resulting vector contains the cosine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the cosine function will be applied.
+ * @return Pointer to a new vector containing the cosine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_cos(c3e_vector* vector);
+
+/**
+ * @brief Computes the hyperbolic cosine of each element in the vector.
+ * 
+ * This function applies the hyperbolic cosine function to each element of the input vector.
+ * The resulting vector contains the hyperbolic cosine values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the hyperbolic cosine function will be applied.
+ * @return Pointer to a new vector containing the hyperbolic cosine values of the input vector elements.
+ */
+c3e_vector* c3e_vector_cosh(c3e_vector* vector);
+
+/**
+ * @brief Computes the arc tangent of each element in the vector.
+ * 
+ * This function applies the arc tangent function (inverse of tangent) to each element of the input vector.
+ * The resulting vector contains the arc tangent values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the arc tangent function will be applied.
+ * @return Pointer to a new vector containing the arc tangent values of the input vector elements.
+ */
+c3e_vector* c3e_vector_arc_tan(c3e_vector* vector);
+
+/**
+ * @brief Computes the arc hyperbolic tangent of each element in the vector.
+ * 
+ * This function applies the arc hyperbolic tangent function (inverse of hyperbolic tangent) to each element of the input vector.
+ * The resulting vector contains the arc hyperbolic tangent values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the arc hyperbolic tangent function will be applied.
+ * @return Pointer to a new vector containing the arc hyperbolic tangent values of the input vector elements.
+ */
+c3e_vector* c3e_vector_arc_tanh(c3e_vector* vector);
+
+/**
+ * @brief Computes the tangent of each element in the vector.
+ * 
+ * This function applies the tangent function to each element of the input vector.
+ * The resulting vector contains the tangent values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the tangent function will be applied.
+ * @return Pointer to a new vector containing the tangent values of the input vector elements.
+ */
+c3e_vector* c3e_vector_tan(c3e_vector* vector);
+
+/**
+ * @brief Computes the hyperbolic tangent of each element in the vector.
+ * 
+ * This function applies the hyperbolic tangent function to each element of the input vector.
+ * The resulting vector contains the hyperbolic tangent values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the hyperbolic tangent function will be applied.
+ * @return Pointer to a new vector containing the hyperbolic tangent values of the input vector elements.
+ */
+c3e_vector* c3e_vector_tanh(c3e_vector* vector);
+
+/**
+ * @brief Computes the absolute value of each element in the vector.
+ * 
+ * This function applies the absolute value function to each element of the input vector.
+ * The resulting vector contains the absolute values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the absolute value function will be applied.
+ * @return Pointer to a new vector containing the absolute values of the input vector elements.
+ */
+c3e_vector* c3e_vector_abs(c3e_vector* vector);
+
+/**
+ * @brief Computes the natural logarithm of each element in the vector.
+ * 
+ * This function applies the natural logarithm function to each element of the input vector.
+ * The resulting vector contains the natural logarithm values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the natural logarithm function will be applied.
+ * @return Pointer to a new vector containing the natural logarithm values of the input vector elements.
+ */
+c3e_vector* c3e_vector_log(c3e_vector* vector);
+
+/**
+ * @brief Computes the base-10 logarithm of each element in the vector.
+ * 
+ * This function applies the base-10 logarithm function to each element of the input vector.
+ * The resulting vector contains the base-10 logarithm values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the base-10 logarithm function will be applied.
+ * @return Pointer to a new vector containing the base-10 logarithm values of the input vector elements.
+ */
+c3e_vector* c3e_vector_log10(c3e_vector* vector);
+
+/**
+ * @brief Computes the base-2 logarithm of each element in the vector.
+ * 
+ * This function applies the base-2 logarithm function to each element of the input vector.
+ * The resulting vector contains the base-2 logarithm values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the base-2 logarithm function will be applied.
+ * @return Pointer to a new vector containing the base-2 logarithm values of the input vector elements.
+ */
+c3e_vector* c3e_vector_log2(c3e_vector* vector);
+
+/**
+ * @brief Computes the natural logarithm of (1 + each element in the vector).
+ * 
+ * This function applies the natural logarithm function to (1 + each element) of the input vector.
+ * The resulting vector contains the natural logarithm values of the modified elements.
+ * 
+ * @param vector Pointer to the input vector on which the natural logarithm of (1 + element) function will be applied.
+ * @return Pointer to a new vector containing the natural logarithm values of the modified input vector elements.
+ */
+c3e_vector* c3e_vector_log1p(c3e_vector* vector);
+
+/**
+ * @brief Computes each element of the vector raised to the given power.
+ * 
+ * This function applies the power function to each element of the input vector, raising each element
+ * to the specified exponent.
+ * 
+ * @param vector Pointer to the input vector on which the power function will be applied.
+ * @param exp The exponent to which each element of the vector will be raised.
+ * @return Pointer to a new vector containing the results of raising each element to the given power.
+ */
+c3e_vector* c3e_vector_pow(c3e_vector* vector, c3e_number exp);
+
+/**
+ * @brief Computes the reciprocal square root of each element in the vector.
+ * 
+ * This function applies the reciprocal square root function (1 / sqrt(x)) to each element of the input vector.
+ * The resulting vector contains the reciprocal square root values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the reciprocal square root function will be applied.
+ * @return Pointer to a new vector containing the reciprocal square root values of the input vector elements.
+ */
+c3e_vector* c3e_vector_rsqrt(c3e_vector* vector);
+
+/**
+ * @brief Computes the square root of each element in the vector.
+ * 
+ * This function applies the square root function to each element of the input vector.
+ * The resulting vector contains the square root values of the original elements.
+ * 
+ * @param vector Pointer to the input vector on which the square root function will be applied.
+ * @return Pointer to a new vector containing the square root values of the input vector elements.
+ */
+c3e_vector* c3e_vector_sqrt(c3e_vector* vector);
 
 #endif /* C3E_VECTOR_H */
