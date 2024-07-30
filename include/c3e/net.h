@@ -122,6 +122,21 @@ void c3e_socket_send_matrix(c3e_socket* socket, c3e_matrix* matrix);
  */
 void c3e_socket_send_vector(c3e_socket* socket, c3e_vector* vector);
 
+
+/**
+ * @brief Sends a numerical value over a socket connection.
+ *
+ * This function sends a `c3e_number` type value through the specified socket. It uses the
+ * `c3e_socket_send_data` function to transmit the binary representation of the number.
+ *
+ * @param socket A pointer to a `c3e_socket` structure representing the socket
+ *               connection through which the data will be sent.
+ * @param number The numerical value of type `c3e_number` to be sent. This value
+ *               is sent as a binary stream, which means the receiving end should
+ *               be aware of the data format to correctly interpret it.
+ */
+void c3e_socket_send_number(c3e_socket* socket, c3e_number number);
+
 /**
  * @brief Receives and deserializes a tensor object from the socket.
  *
@@ -151,5 +166,16 @@ c3e_matrix* c3e_socket_matrix_read(c3e_socket* socket);
  * @return A pointer to the deserialized `c3e_vector` object. NULL if the operation fails.
  */
 c3e_vector* c3e_socket_vector_read(c3e_socket* socket);
+
+/**
+ * @brief Receives a numerical value from a socket connection.
+ *
+ * This function reads a `c3e_number` type value from the specified socket.
+ *
+ * @param socket A pointer to a `c3e_socket` structure representing the socket
+ *               connection from which the data will be received.
+ * @return The numerical value of type `c3e_number` that was received from the socket.
+ */
+c3e_number c3e_socket_number_read(c3e_socket* socket);
 
 #endif /* C3E_NET_H */
