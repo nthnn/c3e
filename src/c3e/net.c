@@ -84,6 +84,10 @@ void c3e_socket_send_vector(c3e_socket* socket, c3e_vector* vector) {
     c3e_socket_send_data(socket, vector->data, vector->size * sizeof(c3e_number));
 }
 
+void c3e_socket_send_number(c3e_socket* socket, c3e_number number) {
+    c3e_socket_send_data(socket, &number, sizeof(c3e_number));
+}
+
 c3e_tensor* c3e_socket_tensor_read(c3e_socket* socket) {
     c3e_tensor* tensor = (c3e_tensor*) malloc(sizeof(c3e_tensor));
 
@@ -118,4 +122,11 @@ c3e_vector* c3e_socket_vector_read(c3e_socket* socket) {
     c3e_socket_receive_data(socket, vector->data, vector->size * sizeof(c3e_number));
 
     return vector;
+}
+
+c3e_number c3e_socket_number_read(c3e_socket* socket) {
+    c3e_number value;
+    c3e_socket_receive_data(socket, &value, sizeof(c3e_number));
+
+    return value;
 }
