@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['server_5faddr_0',['server_addr',['../structc3e__socket.html#a1149187478b76d8c35bbbed450915291',1,'c3e_socket']]],
-  ['singular_1',['singular',['../structc3e__svd.html#a1a3449568fade82dab5fc5bb3689e621',1,'c3e_svd']]],
-  ['size_2',['size',['../structc3e__vector.html#a669ee1cdb8aaf57471c7780d68479e25',1,'c3e_vector']]],
-  ['sockfd_3',['sockfd',['../structc3e__socket.html#ad42ef23b6541c5841249aeba203732e9',1,'c3e_socket']]],
-  ['svd_2eh_4',['svd.h',['../svd_8h.html',1,'']]]
+  ['pi_0',['PI',['../commons_8h.html#a598a3330b3c21701223ee0ca14316eca',1,'commons.h']]],
+  ['port_1',['port',['../structc3e__socket.html#a8c698cf3c920430858d6ee99e0a98ef4',1,'c3e_socket']]]
 ];

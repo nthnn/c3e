@@ -118,8 +118,13 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="toc"><h3>Table of Contents</h3>
 <ul><ul><li class="level2"><a href="#autotoc_md1">Overview</a></li>
-<li class="level2"><a href="#autotoc_md3">Use Cases</a></li>
-<li class="level2"><a href="#autotoc_md5">License</a></li>
+<li class="level2"><a href="#autotoc_md3">Getting Started</a><ul><li class="level3"><a href="#autotoc_md4">Installing C3E on Debian-Based Linux Distributions</a></li>
+<li class="level3"><a href="#autotoc_md5">Using the C3E Library</a></li>
+<li class="level3"><a href="#autotoc_md6">Example</a></li>
+</ul>
+</li>
+<li class="level2"><a href="#autotoc_md8">Use Cases</a></li>
+<li class="level2"><a href="#autotoc_md10">License</a></li>
 </ul>
 </ul>
 </div>
@@ -131,6 +136,29 @@ Overview</h2>
 <p>C3E have a Debian package (*.deb) deployable on Debian-based operating systems. This build functions as a C/C++ library, providing developers with the functionality integrating C3E's capabilities directly into their applications. This library package ensures easy installation and compatibility with a wide range of systems, making it accessible to a broader audience. Developers can harness the power of C3E to enhance their software with advanced computational features, enabling applications to handle more complex tasks and deliver better performance.</p>
 <hr  />
 <h2><a class="anchor" id="autotoc_md3"></a>
+Getting Started</h2>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Installing C3E on Debian-Based Linux Distributions</h3>
+<p>To install the C3E library as a shared library on Debian-based Linux distributions (such as Ubuntu, Parrot, Parsix, etc.), follow these steps:</p>
+<ol type="1">
+<li>Download the Package: Obtain the *.deb package from the C3E <a href="https://github.com/nthnn/c3e/releases">release</a> page.</li>
+<li><p class="startli">Install the Package: Use the dpkg command to install the package. Run the following command in your terminal:</p>
+<div class="fragment"><div class="line">sudo dpkg -i c3e_*.deb</div>
+</div><!-- fragment --></li>
+</ol>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Using the C3E Library</h3>
+<p>After installation, you can link the C3E library in your C programs by adding <code>-lc3e -lm</code> to the compiler's arguments. The <code>-lm</code> flag links the standard math library, which is often required for mathematical functions, especially in statically linked programs.</p>
+<blockquote class="doxtable">
+<p>&zwj;[!NOTE] The -lm flag is necessary for linking the math library, which provides essential mathematical functions not included in the standard C library. This is particularly important when building statically linked programs. </p>
+</blockquote>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Example</h3>
+<p>To compile a program using the C3E library, use the following command:</p>
+<div class="fragment"><div class="line">gcc -o example example.c -lc3e -lm</div>
+</div><!-- fragment --><p>In this example, <code>example.c</code> is your source file, and <code>-o example</code> specifies the output executable file name.</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md8"></a>
 Use Cases</h2>
 <ol type="1">
 <li><b>Scientific Computing</b><ul>
@@ -160,7 +188,7 @@ Use Cases</h2>
 </li>
 </ol>
 <hr  />
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 License</h2>
 <p>See <a href="https://opensource.org/license/bsd-2-clause">BSD 2-Clause License</a>.</p>
 <div class="fragment"><div class="line">Copyright 2024 Nathanne Isip</div>
