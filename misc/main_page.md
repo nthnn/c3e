@@ -18,6 +18,39 @@ C3E have a Debian package (*.deb) deployable on Debian-based operating systems. 
 
 ---
 
+## Getting Started
+
+### Installing C3E on Debian-Based Linux Distributions
+
+To install the C3E library as a shared library on Debian-based Linux distributions (such as Ubuntu, Parrot, Parsix, etc.), follow these steps:
+
+1. Download the Package: Obtain the *.deb package from the C3E [release](https://github.com/nthnn/c3e/releases) page.
+
+2. Install the Package: Use the dpkg command to install the package. Run the following command in your terminal:
+
+    ```bash
+    sudo dpkg -i c3e_*.deb
+    ```
+
+### Using the C3E Library
+
+After installation, you can link the C3E library in your C programs by adding `-lc3e -lm` to the compiler's arguments. The `-lm` flag links the standard math library, which is often required for mathematical functions, especially in statically linked programs.
+
+> [!NOTE]
+> The -lm flag is necessary for linking the math library, which provides essential mathematical functions not included in the standard C library. This is particularly important when building statically linked programs.
+
+### Example
+
+To compile a program using the C3E library, use the following command:
+
+```bash
+gcc -o example example.c -lc3e -lm
+```
+
+In this example, `example.c` is your source file, and `-o example` specifies the output executable file name.
+
+---
+
 ## Use Cases
 
 1. **Scientific Computing**
